@@ -96,3 +96,16 @@
 }
 
 /* Custom animations removed - using Framer Motion instead */
+
+/* Add utility for darker navy blue accent color */
+@layer utilities {
+  .text-navy-dark {
+    color: #0f2b6a;
+  }
+  .bg-navy-dark {
+    background-color: #0f2b6a;
+  }
+  .border-navy-dark {
+    border-color: #0f2b6a;
+  }
+}

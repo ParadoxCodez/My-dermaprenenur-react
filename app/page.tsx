@@ -35,71 +35,93 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#1e40af] pt-20"
+        className="min-h-screen flex items-center px-4 bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#1e40af] pt-20 relative overflow-hidden"
       >
-        <div className="max-w-6xl mx-auto text-center text-white">
-          <FadeIn>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
-                <p className="text-sm md:text-base font-semibold tracking-wide">
-                  India's one and only INTENSIVE PRACTICE MANAGEMENT WORKSHOP
-                </p>
-              </div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight">
-                DERMAPRENEUR 2025
-              </h1>
-              <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
-              <p className="text-lg md:text-xl mb-12 text-white/80">
-                10-12 January, 2025 | The Gift City Club, Radisson, Gandhinagar
-              </p>
-            </motion.div>
-          </FadeIn>
+        {/* Geometric accent element on the right */}
+        <div className="absolute right-0 top-1/4 w-96 h-96 opacity-10">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="#60a5fa"
+              d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,39.8,76.8C25.8,84.6,8.8,87.6,-7.5,84.9C-23.8,82.2,-39.4,73.8,-53.2,63.8C-67,53.8,-79,42.2,-85.4,27.8C-91.8,13.4,-92.6,-3.8,-87.8,-19.4C-83,-35,-72.6,-49,-59.4,-57.8C-46.2,-66.6,-30.2,-70.2,-15.1,-73.8C0,-77.4,15.1,-81,29.7,-79.8C44.3,-78.6,58.4,-72.6,44.7,-76.4Z"
+              transform="translate(100 100)"
+            />
+          </svg>
+        </div>
 
-          <FadeIn delay={0.2}>
-            <div className="mb-12">
-              <CountdownTimer targetDate={new Date("2025-01-10T09:00:00")} />
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Left two-thirds: content */}
+            <div className="lg:col-span-2 text-left text-white">
+              <FadeIn>
+                <motion.div
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
+                    <p className="text-sm md:text-base font-semibold tracking-wide">
+                      India's one and only INTENSIVE PRACTICE MANAGEMENT WORKSHOP
+                    </p>
+                  </div>
+                  <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight">
+                    DERMAPRENEUR 2025
+                  </h1>
+                  <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
+                  <p className="text-lg md:text-xl mb-12 text-white/80">
+                    10-12 January, 2025 | The Gift City Club, Radisson, Gandhinagar
+                  </p>
+                </motion.div>
+              </FadeIn>
+
+              <FadeIn delay={0.2}>
+                <div className="mb-12">
+                  <CountdownTimer targetDate={new Date("2025-01-10T09:00:00")} />
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.4}>
+                <PremiumButton size="lg" className="text-lg px-12 py-6">
+                  ADD YOUR NAME IN THE WAITLIST
+                </PremiumButton>
+              </FadeIn>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={0.4}>
-            <PremiumButton size="lg" className="text-lg px-12 py-6">
-              ADD YOUR NAME IN THE WAITLIST
-            </PremiumButton>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
       <SectionDivider />
 
       {/* What to Expect Section */}
-      <section id="about" className="py-32 px-4">
-        <div className="max-w-7xl mx-auto">
-          <FadeIn>
-            <SectionHeader
-              title="What to Expect"
-              subtitle="2 and half days' intensive fun-filled experiential learning experience"
-            />
-          </FadeIn>
+      <section id="about" className="py-32 px-4 overflow-hidden">
+        <div className="relative">
+          {/* Rotated background container */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white transform -rotate-[0.5deg] scale-105" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: "🎯", title: "Hands-on Experience", color: "#1e3a8a" },
-              { icon: "📚", title: "Thought Provoking Workbooks", color: "#2563eb" },
-              { icon: "🎉", title: "Entertainment Evenings", color: "#3b82f6" },
-              { icon: "💡", title: "Innovative Insights", color: "#60a5fa" },
-              { icon: "🎓", title: "Fun Way Learning", color: "#1e3a8a" },
-              { icon: "🔧", title: "Actionable Ideas", color: "#2563eb" },
-              { icon: "🎭", title: "Engaging Role Plays", color: "#3b82f6" },
-              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#60a5fa" },
-            ].map((feature, index) => (
-              <FadeIn key={index} delay={index * 0.1}>
-                <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} />
-              </FadeIn>
-            ))}
+          {/* Content remains horizontal */}
+          <div className="relative max-w-7xl mx-auto">
+            <FadeIn>
+              <SectionHeader
+                title="What to Expect"
+                subtitle="2 and half days' intensive fun-filled experiential learning experience"
+              />
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { icon: "🎯", title: "Hands-on Experience", color: "#1e3a8a" },
+                { icon: "📚", title: "Thought Provoking Workbooks", color: "#2563eb" },
+                { icon: "🎉", title: "Entertainment Evenings", color: "#3b82f6" },
+                { icon: "💡", title: "Innovative Insights", color: "#60a5fa" },
+                { icon: "🎓", title: "Fun Way Learning", color: "#1e3a8a" },
+                { icon: "🔧", title: "Actionable Ideas", color: "#2563eb" },
+                { icon: "🎭", title: "Engaging Role Plays", color: "#3b82f6" },
+                { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#60a5fa" },
+              ].map((feature, index) => (
+                <FadeIn key={index} delay={index * 0.1}>
+                  <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} />
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -133,7 +155,7 @@ export default function Home() {
             ].map((stat, index) => (
               <FadeIn key={index} delay={index * 0.1}>
                 <TiltCard className="text-center">
-                  <div className="p-10 bg-white">
+                  <div className="p-10 bg-white border border-[#e0e0e0] rounded-lg">
                     <div className="text-5xl md:text-6xl font-bold text-[#1e3a8a] mb-2">
                       <AnimatedCounter value={stat.number} suffix={stat.suffix} duration={2} />
                     </div>
@@ -150,7 +172,7 @@ export default function Home() {
 
       {/* About Section */}
       <section className="py-32 px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <FadeIn>
             <SectionHeader
               title="The Must-Attend Event"
@@ -158,63 +180,72 @@ export default function Home() {
             />
           </FadeIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {[
-              {
-                number: "01",
-                title: "2 and half day",
-                description: "2 and half days' intensive fun-filled experiential learning experience.",
-              },
-              {
-                number: "02",
-                title: "Designated",
-                description: "Designed for inner circle only who are having the growth mindset.",
-              },
-              {
-                number: "03",
-                title: "Narrowing down",
-                description: "Narrowing down seats to the limited numbers only.",
-              },
-              {
-                number: "04",
-                title: "Restricted",
-                description: "Restricted number of delegates to just like-minded and growth-minded dermatologists.",
-              },
-            ].map((item, index) => (
-              <FadeIn key={index} delay={index * 0.1}>
-                <TiltCard className="h-full">
-                  <div className="p-8 bg-white border-2 border-gray-100 h-full">
-                    <div className="text-5xl font-bold text-[#1e3a8a]/20 mb-4 font-serif">{item.number}</div>
-                    <h3 className="text-xl font-bold text-[#1e3a8a] mb-3 font-serif">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                  </div>
-                </TiltCard>
+          {/* 40/60 Split Layout */}
+          <div className="grid lg:grid-cols-5 gap-12 mb-16">
+            {/* 40% column - Testimonial/Quote */}
+            <div className="lg:col-span-2">
+              <FadeIn delay={0.2}>
+                <QuoteBlock
+                  quote="Delaying to learn marketing & practice management until your clinic becomes a top choice is like waiting to put on sunscreen only after you've got a sunburn."
+                  author="Practice Management Wisdom"
+                />
               </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn delay={0.3}>
-            <QuoteBlock
-              quote="Delaying to learn marketing & practice management until your clinic becomes a top choice is like waiting to put on sunscreen only after you've got a sunburn."
-              author="Practice Management Wisdom"
-            />
-          </FadeIn>
-
-          <FadeIn delay={0.4}>
-            <div className="mt-16 prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                Dermapreneur 2025 is an exclusive, invitation-only workshop designed for growth-driven dermatologists,
-                offering a 2.5-day immersive experience in practice management and entrepreneurship. With tailored
-                strategies, hands-on learning, and cutting-edge insights, it empowers participants to elevate their
-                practices and achieve measurable business growth.
-              </p>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                Who isn't in the room is just as crucial as who is. That's why DERMAPRENEUR 2025 is an exclusive,
-                invitation-only workshop with strictly limited seats—reserved only for like-minded, growth-oriented
-                dermatologists ready to transform their practice.
-              </p>
             </div>
-          </FadeIn>
+
+            {/* 60% column - Main content */}
+            <div className="lg:col-span-3">
+              <FadeIn delay={0.3}>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    Dermapreneur 2025 is an exclusive, invitation-only workshop designed for growth-driven
+                    dermatologists, offering a 2.5-day immersive experience in practice management and entrepreneurship.
+                    With tailored strategies, hands-on learning, and cutting-edge insights, it empowers participants to
+                    elevate their practices and achieve measurable business growth.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                    Who isn't in the room is just as crucial as who is. That's why DERMAPRENEUR 2025 is an exclusive,
+                    invitation-only workshop with strictly limited seats—reserved only for like-minded, growth-oriented
+                    dermatologists ready to transform their practice.
+                  </p>
+
+                  {/* Key Points Grid */}
+                  <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    {[
+                      {
+                        number: "01",
+                        title: "2 and half day",
+                        description: "2 and half days' intensive fun-filled experiential learning experience.",
+                      },
+                      {
+                        number: "02",
+                        title: "Designated",
+                        description: "Designed for inner circle only who are having the growth mindset.",
+                      },
+                      {
+                        number: "03",
+                        title: "Narrowing down",
+                        description: "Narrowing down seats to the limited numbers only.",
+                      },
+                      {
+                        number: "04",
+                        title: "Restricted",
+                        description:
+                          "Restricted number of delegates to just like-minded and growth-minded dermatologists.",
+                      },
+                    ].map((item, index) => (
+                      <FadeIn key={index} delay={0.4 + index * 0.1}>
+                        <div className="p-6 bg-white border border-[#e0e0e0] rounded-lg hover:border-[#1e3a8a]/30 transition-colors duration-300">
+                          <div className="text-4xl font-bold text-[#0f2b6a]/30 mb-3 font-serif">{item.number}</div>
+                          <h3 className="text-lg font-bold text-[#0f2b6a] mb-2 font-serif">{item.title}</h3>
+                          <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                        </div>
+                      </FadeIn>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
         </div>
       </section>
 
