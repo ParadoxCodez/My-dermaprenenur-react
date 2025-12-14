@@ -16,6 +16,7 @@ import { AnimatedCounter } from "@/components/animated-counter"
 import { QuoteBlock } from "@/components/quote-block"
 import { CountdownTimer } from "@/components/countdown-timer" // Assuming this component exists based on usage
 import { StickyPromise } from "@/components/sticky-promise"
+import { FloatingShapes } from "@/components/floating-shapes"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,19 +31,19 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#f9f9f9] to-white">
+    <div className="min-h-screen section-canvas">
       <Navbar />
 
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center px-4 bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#1e40af] pt-20 relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center px-4 bg-primary-navy pt-20 relative overflow-hidden"
       >
         {/* Geometric accent element on the right */}
         <div className="absolute right-0 top-1/4 w-96 h-96 opacity-10">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path
-              fill="#60a5fa"
+              fill="#ffffff"
               d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,39.8,76.8C25.8,84.6,8.8,87.6,-7.5,84.9C-23.8,82.2,-39.4,73.8,-53.2,63.8C-67,53.8,-79,42.2,-85.4,27.8C-91.8,13.4,-92.6,-3.8,-87.8,-19.4C-83,-35,-72.6,-49,-59.4,-57.8C-46.2,-66.6,-30.2,-70.2,-15.1,-73.8C0,-77.4,15.1,-81,29.7,-79.8C44.3,-78.6,58.4,-72.6,44.7,-76.4Z"
               transform="translate(100 100)"
             />
@@ -54,20 +55,30 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Floating shapes component for perpetual motion */}
+        <FloatingShapes />
+
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
               <motion.div
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
+                style={{
+                  translateY: 0,
+                }}
+                whileInView={{
+                  translateY: -20,
+                }}
+                viewport={{ once: false }}
               >
                 <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
-                  <p className="text-sm md:text-base font-semibold tracking-wide">
-                    India's one and only INTENSIVE PRACTICE MANAGEMENT WORKSHOP
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-white">
+                    India's One and Only Intensive Practice Management Workshop
                   </p>
                 </div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight text-white">
                   DERMAPRENEUR 2025
                 </h1>
                 <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
@@ -78,33 +89,44 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="mb-12">
+              <motion.div
+                className="mb-8 flex justify-center"
+                style={{
+                  translateY: 0,
+                }}
+                whileInView={{
+                  translateY: -10,
+                }}
+                viewport={{ once: false }}
+              >
                 <CountdownTimer targetDate={new Date("2025-01-10T09:00:00")} />
-              </div>
+              </motion.div>
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 0 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.2)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <Button
-                  size="lg"
-                  className="text-lg px-12 py-6 bg-white text-[#1e3a8a] hover:bg-white/90 font-bold shadow-2xl relative overflow-hidden group"
+              <div className="flex justify-center">
+                <motion.div
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 0 40px rgba(249, 168, 37, 0.4), 0 0 80px rgba(249, 168, 37, 0.2)",
+                  }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
-                  {/* Ripple effect on hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-white/20"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 2, opacity: [0, 0.5, 0] }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </Button>
-              </motion.div>
+                  <Button
+                    size="lg"
+                    className="text-lg px-12 py-6 bg-white text-primary-navy hover:bg-white/90 font-bold shadow-2xl relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
+                    {/* Ripple effect on hover */}
+                    <motion.div
+                      className="absolute inset-0 bg-white/20"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 2, opacity: [0, 0.5, 0] }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  </Button>
+                </motion.div>
+              </div>
             </FadeIn>
           </div>
         </div>
@@ -113,10 +135,10 @@ export default function Home() {
       <SectionDivider />
 
       {/* What to Expect Section */}
-      <section id="about" className="py-32 px-4 overflow-hidden">
+      <section id="about" className="py-32 px-4 overflow-hidden section-sepia">
         <div className="relative">
           {/* Rotated background container */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white transform -rotate-[0.5deg] scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4F7] to-[#FBFBFB] transform -rotate-[0.5deg] scale-105" />
 
           {/* Content remains horizontal */}
           <div className="relative max-w-7xl mx-auto">
@@ -127,31 +149,51 @@ export default function Home() {
               />
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+            >
               {[
-                { icon: "🎯", title: "Hands-on Experience", color: "#1e3a8a" },
-                { icon: "📚", title: "Thought Provoking Workbooks", color: "#2563eb" },
-                { icon: "🎉", title: "Entertainment Evenings", color: "#3b82f6" },
-                { icon: "💡", title: "Innovative Insights", color: "#60a5fa" },
-                { icon: "🎓", title: "Fun Way Learning", color: "#1e3a8a" },
-                { icon: "🔧", title: "Actionable Ideas", color: "#2563eb" },
-                { icon: "🎭", title: "Engaging Role Plays", color: "#3b82f6" },
-                { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#60a5fa" },
+                { icon: "🎯", title: "Hands-on Experience", color: "#F9A825" },
+                { icon: "📚", title: "Thought Provoking Workbooks", color: "#F9A825" },
+                { icon: "🎉", title: "Entertainment Evenings", color: "#F9A825" },
+                { icon: "💡", title: "Innovative Insights", color: "#F9A825" },
+                { icon: "🎓", title: "Fun Way Learning", color: "#F9A825" },
+                { icon: "🔧", title: "Actionable Ideas", color: "#F9A825" },
+                { icon: "🎭", title: "Engaging Role Plays", color: "#F9A825" },
+                { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F9A825" },
               ].map((feature, index) => (
-                <FadeIn key={index} delay={index * 0.1}>
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} />
-                </FadeIn>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       <SectionDivider />
 
-      {/* Success Stats Section */}
-      <section className="py-32 px-4 bg-[#1e3a8a]">
-        <div className="max-w-7xl mx-auto">
+      {/* Stats Section */}
+      <section className="py-32 px-4 section-canvas relative overflow-hidden">
+        <FloatingShapes />
+        <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <motion.div
@@ -159,39 +201,59 @@ export default function Home() {
                 whileInView={{ width: 50, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="h-0.5 bg-white mx-auto mb-6"
+                className="h-0.5 bg-accent-gold mx-auto mb-6"
               />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary-navy mb-4 font-serif">
                 The Success Trail Of Previous Versions
               </h2>
             </div>
           </FadeIn>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <motion.div
+            className="grid md:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+          >
             {[
               { number: 6, suffix: "+", label: "Successful Versions" },
               { number: 582, suffix: "+", label: "Delighted Dermapreneurs" },
               { number: 187, suffix: "+", label: "Hours of Knowledge Delivered" },
               { number: 161, suffix: "+", label: "Insightful & Practical Inputs Delivered" },
             ].map((stat, index) => (
-              <FadeIn key={index} delay={index * 0.1}>
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <TiltCard className="text-center">
                   <div className="p-10 bg-white border border-[#e0e0e0] rounded-lg">
-                    <div className="text-5xl md:text-6xl font-bold text-[#1e3a8a] mb-2">
+                    <div className="text-5xl md:text-6xl font-bold text-primary-navy mb-2">
                       <AnimatedCounter value={stat.number} suffix={stat.suffix} duration={2} />
                     </div>
-                    <div className="text-lg text-gray-600">{stat.label}</div>
+                    <div className="text-lg text-deep">{stat.label}</div>
                   </div>
                 </TiltCard>
-              </FadeIn>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <SectionDivider />
 
-      <section className="py-32 px-4">
+      {/* About Section */}
+      <section className="py-32 px-4 section-sepia">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <SectionHeader
@@ -230,10 +292,10 @@ export default function Home() {
                     },
                   ].map((item, index) => (
                     <FadeIn key={index} delay={0.3 + index * 0.1}>
-                      <div className="border-l-4 border-[#1e3a8a] pl-6 py-2">
-                        <div className="text-5xl font-bold text-[#0f2b6a]/20 mb-2 font-serif">{item.number}</div>
-                        <h3 className="text-xl font-bold text-[#0f2b6a] mb-2 font-serif">{item.title}</h3>
-                        <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                      <div className="border-l-4 border-primary-navy pl-6 py-2">
+                        <div className="text-5xl font-bold text-primary-navy/20 mb-2 font-serif">{item.number}</div>
+                        <h3 className="text-xl font-bold text-primary-navy mb-2 font-serif">{item.title}</h3>
+                        <p className="text-deep leading-relaxed text-sm">{item.description}</p>
                       </div>
                     </FadeIn>
                   ))}
@@ -245,13 +307,13 @@ export default function Home() {
             <div className="lg:col-span-7">
               <FadeIn delay={0.3}>
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                  <p className="text-deep leading-relaxed text-lg mb-6">
                     Dermapreneur 2025 is an exclusive, invitation-only workshop designed for growth-driven
                     dermatologists, offering a 2.5-day immersive experience in practice management and entrepreneurship.
                     With tailored strategies, hands-on learning, and cutting-edge insights, it empowers participants to
                     elevate their practices and achieve measurable business growth.
                   </p>
-                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  <p className="text-deep leading-relaxed text-lg mb-8">
                     Who isn't in the room is just as crucial as who is. That's why DERMAPRENEUR 2025 is an exclusive,
                     invitation-only workshop with strictly limited seats—reserved only for like-minded, growth-oriented
                     dermatologists ready to transform their practice.
@@ -273,8 +335,23 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="speakers" className="py-32 px-4 bg-white relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_#f5f5f5_100%)]" />
+      {/* Speakers Section */}
+      <section id="speakers" className="py-32 px-4 relative overflow-hidden section-canvas">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FBFBFB] to-[#F0F4F7]" />
+
+        <FloatingShapes />
+
+        {/* Subtle dotted grid pattern */}
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle, #d8dce0 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+          initial={{ y: 0 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0 }}
+        />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
@@ -289,7 +366,7 @@ export default function Home() {
               <div className="grid lg:grid-cols-5 gap-12 items-start">
                 {/* Left side - Photo placeholder */}
                 <div className="lg:col-span-2">
-                  <div className="aspect-[3/4] bg-gradient-to-br from-[#1e3a8a]/10 to-[#2563eb]/5 rounded-lg border-2 border-[#1e3a8a]/20 flex items-center justify-center">
+                  <div className="aspect-[3/4] bg-gradient-to-br from-primary-navy/10 to-primary-navy/5 rounded-lg border-2 border-primary-navy/20 flex items-center justify-center">
                     <div className="text-center p-8">
                       <div className="text-6xl mb-4">👨‍⚕️</div>
                       <p className="text-sm text-gray-500">Speaker Photo</p>
@@ -300,8 +377,8 @@ export default function Home() {
                 {/* Right side - Bio text */}
                 <div className="lg:col-span-3">
                   <div className="mb-6">
-                    <h3 className="text-4xl font-bold text-[#1e3a8a] mb-4 font-serif">Ilesh Khakhkhar</h3>
-                    <div className="flex flex-wrap gap-2 text-sm text-gray-600 mb-6">
+                    <h3 className="text-4xl font-bold text-primary-navy mb-4 font-serif">Ilesh Khakhkhar</h3>
+                    <div className="flex flex-wrap gap-2 text-sm text-deep mb-6">
                       <span className="px-3 py-1 bg-blue-50 rounded-full">Leader</span>
                       <span className="px-3 py-1 bg-blue-50 rounded-full">Entrepreneur</span>
                       <span className="px-3 py-1 bg-blue-50 rounded-full">Marketer</span>
@@ -309,11 +386,11 @@ export default function Home() {
                       <span className="px-3 py-1 bg-blue-50 rounded-full">Author</span>
                       <span className="px-3 py-1 bg-blue-50 rounded-full">Certified Business Coach</span>
                     </div>
-                    <p className="text-lg text-gray-700 mb-2">20+ years in Derma marketing</p>
-                    <p className="text-lg text-gray-700 font-semibold mb-6">Trained 500+ Dermatologists</p>
+                    <p className="text-lg text-deep mb-2">20+ years in Derma marketing</p>
+                    <p className="text-lg text-deep font-semibold mb-6">Trained 500+ Dermatologists</p>
                   </div>
 
-                  <div className="space-y-4 text-gray-700 leading-relaxed font-serif text-base">
+                  <div className="space-y-4 text-deep leading-relaxed font-serif text-base">
                     <p>
                       Ilesh Khakhkhar is a renowned serial entrepreneur, practice management expert, and keynote speaker
                       with over 20 years of experience in dermatology marketing. As a John Maxwell Team Certified coach
@@ -324,7 +401,7 @@ export default function Home() {
                       excellence specifically tailored for dermatology practices. Ilesh led the highly successful CDSI
                       AI BOOSTER workshop in 2024 and continues to drive innovation in dermatology practice management.
                     </p>
-                    <p className="text-[#1e3a8a] font-semibold font-sans">
+                    <p className="text-primary-navy font-semibold font-sans">
                       Ilesh will lead approximately 80% of the Dermapreneur 2025 sessions, sharing actionable insights
                       you can implement immediately in your practice.
                     </p>
@@ -338,8 +415,21 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="pricing" className="py-32 px-4 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_#f5f5f5_100%)]" />
+      {/* Pricing Section */}
+      <section id="pricing" className="py-32 px-4 relative overflow-hidden section-sepia">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4F7] to-[#FBFBFB]" />
+
+        {/* Subtle dotted grid pattern */}
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle, #d8dce0 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+          initial={{ y: 0 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0 }}
+        />
 
         <StickyPromise />
 
@@ -396,26 +486,45 @@ export default function Home() {
                       ? "0 25px 50px -12px rgba(30, 58, 138, 0.25)"
                       : "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   }}
-                  transition={{ duration: 0.3 }}
+                  animate={
+                    pkg.featured
+                      ? {
+                          boxShadow: [
+                            "0 20px 40px -12px rgba(30, 58, 138, 0.15)",
+                            "0 25px 50px -12px rgba(30, 58, 138, 0.25)",
+                            "0 20px 40px -12px rgba(30, 58, 138, 0.15)",
+                          ],
+                        }
+                      : {}
+                  }
+                  transition={
+                    pkg.featured
+                      ? {
+                          duration: 3,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "easeInOut",
+                        }
+                      : { duration: 0.3 }
+                  }
                   className="h-full"
                 >
                   <Card
                     className={`${
                       pkg.featured
-                        ? "border-4 border-[#1e3a8a] shadow-2xl scale-105"
+                        ? "border-4 border-primary-navy shadow-2xl scale-105"
                         : "border-2 border-gray-200 shadow-xl"
-                    } hover:ring-2 hover:ring-[#1e3a8a]/50 transition-all duration-300 bg-white relative h-full`}
+                    } hover:ring-2 hover:ring-accent-gold/50 transition-all duration-300 bg-white relative h-full`}
                   >
                     {pkg.featured && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#1e3a8a] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-navy text-white px-4 py-1 rounded-full text-sm font-semibold">
                         RECOMMENDED
                       </div>
                     )}
                     <CardHeader className="text-center">
                       <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                      <div className="text-4xl font-bold text-[#1e3a8a] font-serif">{pkg.price}</div>
+                      <div className="text-4xl font-bold text-primary-navy font-serif">{pkg.price}</div>
                       <CardDescription className="text-sm">{pkg.priceNote}</CardDescription>
-                      <CardDescription className="text-base font-semibold text-gray-700 mt-2">
+                      <CardDescription className="text-base font-semibold text-deep mt-2">
                         {pkg.occupancy}
                       </CardDescription>
                     </CardHeader>
@@ -423,8 +532,8 @@ export default function Home() {
                       <ul className="space-y-3 mb-6">
                         {pkg.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <span className="text-[#1e3a8a] mr-2 font-bold">✓</span>
-                            <span className="text-gray-700 leading-relaxed">{feature}</span>
+                            <span className="text-primary-navy mr-2 font-bold">✓</span>
+                            <span className="text-deep leading-relaxed">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -436,8 +545,8 @@ export default function Home() {
                         <Button
                           className={`w-full ${
                             pkg.featured
-                              ? "bg-[#1e3a8a] hover:bg-[#152d6b] text-white shadow-lg"
-                              : "bg-white border-2 border-[#1e3a8a] text-[#1e3a8a] hover:bg-blue-50"
+                              ? "bg-primary-navy hover:bg-primary-navy/90 text-white shadow-lg"
+                              : "bg-white border-2 border-primary-navy text-primary-navy hover:bg-blue-50"
                           } transition-all duration-300`}
                         >
                           Join Waitlist
@@ -452,15 +561,15 @@ export default function Home() {
 
           <FadeIn delay={0.4}>
             <div className="max-w-3xl mx-auto">
-              <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-lg border-2 border-[#1e3a8a]/20 shadow-lg">
+              <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-lg border-2 border-primary-navy/20 shadow-lg">
                 <div className="mb-6">
-                  <p className="text-gray-700 leading-relaxed text-base mb-4">
-                    <span className="font-bold text-[#1e3a8a]">Additional Person Pricing:</span> If you wish to bring an
-                    additional person (spouse/practice partner), the cost is Rs. 60,500/- (including GST). This includes
-                    access to all sessions, meals, and materials but does not include accommodation.
+                  <p className="text-deep leading-relaxed text-base mb-4">
+                    <span className="font-bold text-primary-navy">Additional Person Pricing:</span> If you wish to bring
+                    an additional person (spouse/practice partner), the cost is Rs. 60,500/- (including GST). This
+                    includes access to all sessions, meals, and materials but does not include accommodation.
                   </p>
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    <span className="font-bold text-[#1e3a8a]">Note:</span> For those opting for double occupancy, if
+                  <p className="text-deep leading-relaxed text-base">
+                    <span className="font-bold text-primary-navy">Note:</span> For those opting for double occupancy, if
                     you don't have a roommate, we'll pair you with another attendee to ensure everyone gets the best
                     value.
                   </p>
@@ -474,7 +583,7 @@ export default function Home() {
       <SectionDivider />
 
       {/* FAQ Section */}
-      <section id="faq" className="py-32 px-4">
+      <section id="faq" className="py-32 px-4 section-canvas">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <SectionHeader title="What's Your Take…?" subtitle="Common objections and honest answers" />
@@ -547,12 +656,12 @@ export default function Home() {
                 >
                   <AccordionItem
                     value={`objection-${index}`}
-                    className="border border-gray-200 rounded-lg px-6 hover:border-[#1e3a8a] transition-colors duration-300 shadow-md"
+                    className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-gray-800 hover:text-[#1e3a8a] hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-deep hover:text-primary-navy hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-600 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-deep/80 leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -600,12 +709,12 @@ export default function Home() {
                 >
                   <AccordionItem
                     value={`general-${index}`}
-                    className="border border-gray-200 rounded-lg px-6 hover:border-[#1e3a8a] transition-colors duration-300 shadow-md"
+                    className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-gray-800 hover:text-[#1e3a8a] hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-deep hover:text-primary-navy hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-600 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-deep/80 leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -617,7 +726,7 @@ export default function Home() {
       <SectionDivider />
 
       {/* Venue Section */}
-      <section id="venue" className="py-32 px-4">
+      <section id="venue" className="py-32 px-4 section-sepia">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <SectionHeader title="Venue" subtitle="The Gift City Club, Gandhinagar" />
@@ -627,18 +736,18 @@ export default function Home() {
             <TiltCard>
               <div className="bg-white border-2 border-gray-100 p-12">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-[#1e3a8a] mb-2 font-serif">The Gift City Club</h3>
-                  <p className="text-xl text-gray-600 mb-4">Gandhinagar</p>
-                  <p className="text-lg text-gray-500 italic">(A member of Radisson individuals)</p>
+                  <h3 className="text-3xl font-bold text-primary-navy mb-2 font-serif">The Gift City Club</h3>
+                  <p className="text-xl text-deep mb-4">Gandhinagar</p>
+                  <p className="text-lg text-deep/70 italic">(A member of Radisson individuals)</p>
                 </div>
 
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                  <p className="text-deep leading-relaxed text-lg mb-6">
                     Experience world-class facilities in the heart of Gujarat's premier financial district. The Gift
                     City Club offers a sophisticated, professional environment perfect for intensive learning and
                     meaningful networking.
                   </p>
-                  <p className="text-gray-700 leading-relaxed text-lg">
+                  <p className="text-deep leading-relaxed text-lg">
                     With state-of-the-art conference facilities, comfortable accommodations, and excellent dining
                     options, the venue is designed to ensure your complete focus on practice transformation without any
                     distractions.
@@ -646,9 +755,9 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 pt-8 border-t-2 border-gray-200">
-                  <h4 className="text-xl font-bold text-[#1e3a8a] mb-4">Event Dates</h4>
-                  <p className="text-2xl font-semibold text-gray-800">10-12 January, 2025</p>
-                  <p className="text-lg text-gray-600 mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
+                  <h4 className="text-xl font-bold text-primary-navy mb-4">Event Dates</h4>
+                  <p className="text-2xl font-semibold text-deep">10-12 January, 2025</p>
+                  <p className="text-lg text-deep/70 mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
                 </div>
               </div>
             </TiltCard>
@@ -659,7 +768,7 @@ export default function Home() {
       <SectionDivider />
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-4 bg-[#1e3a8a]">
+      <section id="contact" className="py-32 px-4 bg-primary-navy">
         <div className="max-w-4xl mx-auto text-center text-white">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif">Get in Touch</h2>
@@ -696,7 +805,7 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <PremiumButton size="lg" className="bg-white text-[#1e3a8a] hover:bg-gray-100 text-lg px-12 py-6">
+            <PremiumButton size="lg" className="bg-white text-primary-navy hover:bg-gray-100 text-lg px-12 py-6">
               Join the Waitlist
             </PremiumButton>
           </FadeIn>

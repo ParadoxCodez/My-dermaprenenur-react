@@ -7,10 +7,22 @@ import { motion } from "framer-motion"
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+
+      const sections = ["home", "about", "speakers", "pricing", "faqs", "venue", "contact"]
+      const current = sections.find((section) => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      if (current) setActiveSection(current)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -38,7 +50,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           <motion.div
             className={`text-2xl font-bold font-serif transition-colors duration-500 ${
-              scrolled ? "text-[#1e3a8a]" : "text-white"
+              scrolled ? "text-primary-navy" : "text-white"
             }`}
             whileHover={{ scale: 1.05 }}
           >
@@ -52,17 +64,31 @@ export function Navbar() {
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className={`font-medium relative transition-colors duration-300 ${
-                  scrolled ? "text-gray-700 hover:text-[#1e3a8a]" : "text-white/90 hover:text-white"
+                  scrolled ? "text-deep hover:text-primary-navy" : "text-white/90 hover:text-white"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 {item}
+                {activeSection === item.toLowerCase() && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-gold"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <motion.div
+                  className={`absolute -bottom-1 left-0 right-0 h-0.5 ${scrolled ? "bg-accent-gold" : "bg-white"}`}
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: activeSection === item.toLowerCase() ? 0 : 1 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.button>
             ))}
             <motion.button
               className={`font-medium transition-colors duration-300 ${
-                scrolled ? "text-gray-700 hover:text-[#1e3a8a]" : "text-white/90 hover:text-white"
+                scrolled ? "text-deep hover:text-primary-navy" : "text-white/90 hover:text-white"
               }`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
@@ -75,7 +101,7 @@ export function Navbar() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden transition-colors ${
-              scrolled ? "text-gray-700 hover:text-[#1e3a8a]" : "text-white hover:text-white/80"
+              scrolled ? "text-deep hover:text-primary-navy" : "text-white hover:text-white/80"
             }`}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,7 +122,7 @@ export function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-gray-700 hover:text-[#1e3a8a] transition-colors"
+                className="block w-full text-left py-2 text-deep hover:text-primary-navy transition-colors"
               >
                 {item}
               </button>
