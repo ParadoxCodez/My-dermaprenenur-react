@@ -14,13 +14,12 @@ import { PremiumButton } from "@/components/premium-button"
 import { FeatureCard } from "@/components/feature-card"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { QuoteBlock } from "@/components/quote-block"
-import { CountdownTimer } from "@/components/countdown-timer" // Assuming this component exists based on usage
+import { CountdownTimer } from "@/components/countdown-timer"
 import { StickyPromise } from "@/components/sticky-promise"
 import { FloatingShapes } from "@/components/floating-shapes"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  // Countdown state is now managed within CountdownTimer component
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -31,14 +30,13 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen section-canvas">
+    <div className="min-h-screen bg-canvas">
       <Navbar />
 
       <section
         id="home"
         className="min-h-screen flex items-center justify-center px-4 bg-primary-dark pt-20 relative overflow-hidden"
       >
-        {/* Geometric accent element on the right */}
         <div className="absolute right-0 top-1/4 w-96 h-96 opacity-10">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -54,7 +52,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating shapes component for perpetual motion */}
         <FloatingShapes />
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
@@ -115,7 +112,6 @@ export default function Home() {
                     className="text-lg px-12 py-6 bg-white text-primary-dark hover:bg-accent-gold hover:text-white font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
                   >
                     <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
-                    {/* Ripple effect on hover */}
                     <motion.div
                       className="absolute inset-0 bg-white/20"
                       initial={{ scale: 0, opacity: 0 }}
@@ -132,20 +128,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="about" className="relative py-32 px-4 overflow-hidden">
-        {/* Dark dramatic background (Primary Navy) for editorial impact */}
-        <div className="absolute inset-0 bg-primary-dark" />
-
-        {/* Subtle pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-            backgroundSize: "30px 30px",
-          }}
-        />
-
-        {/* Content with white text overlay */}
+      <section id="about" className="relative py-32 px-4 overflow-hidden bg-surface">
         <div className="relative max-w-7xl mx-auto z-10">
           <FadeIn>
             <div className="text-center mb-16">
@@ -157,10 +140,10 @@ export default function Home() {
                 className="inline-block"
               >
                 <div className="w-16 h-1 bg-accent-gold mx-auto mb-6" />
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-white">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-primary-dark">
                   What to Expect
                 </h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-body max-w-3xl mx-auto leading-relaxed">
                   2 and half days' intensive fun-filled experiential learning experience
                 </p>
               </motion.div>
@@ -198,7 +181,7 @@ export default function Home() {
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} darkMode />
+                <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} />
               </motion.div>
             ))}
           </motion.div>
@@ -207,7 +190,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section className="py-32 px-4 section-canvas relative overflow-hidden">
+      <section className="py-32 px-4 bg-canvas relative overflow-hidden">
         <FloatingShapes />
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
@@ -270,9 +253,7 @@ export default function Home() {
             />
           </FadeIn>
 
-          {/* Magazine Grid: 30% for numbers, 70% for description */}
           <div className="grid lg:grid-cols-10 gap-12 mb-16">
-            {/* 30% column - Numbered list displayed vertically */}
             <div className="lg:col-span-3">
               <FadeIn delay={0.2}>
                 <div className="space-y-8">
@@ -311,7 +292,6 @@ export default function Home() {
               </FadeIn>
             </div>
 
-            {/* 70% column - Main description text */}
             <div className="lg:col-span-7">
               <FadeIn delay={0.3}>
                 <div className="prose prose-lg max-w-none">
@@ -327,7 +307,6 @@ export default function Home() {
                     dermatologists ready to transform their practice.
                   </p>
 
-                  {/* Quote Block */}
                   <div className="mt-12">
                     <QuoteBlock
                       quote="Delaying to learn marketing & practice management until your clinic becomes a top choice is like waiting to put on sunscreen only after you've got a sunburn."
@@ -344,7 +323,6 @@ export default function Home() {
       <SectionDivider />
 
       <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-dark">
-        {/* Subtle pattern overlay */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -379,7 +357,6 @@ export default function Home() {
           <FadeIn delay={0.2}>
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-5 gap-12 items-start">
-                {/* Left side - Photo placeholder */}
                 <div className="lg:col-span-2">
                   <div className="aspect-[3/4] bg-white/10 backdrop-blur-sm rounded-lg border-2 border-accent-gold/50 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -441,22 +418,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-32 px-4 relative overflow-hidden section-sepia">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4F7] to-[#FBFBFB]" />
-
-        {/* Subtle dotted grid pattern */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle, #d8dce0 1px, transparent 1px)",
-            backgroundSize: "30px 30px",
-          }}
-          initial={{ y: 0 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0 }}
-        />
-
+      <section id="pricing" className="py-32 px-4 relative overflow-hidden bg-canvas">
         <StickyPromise />
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -509,16 +471,16 @@ export default function Home() {
                   whileHover={{
                     scale: 1.03,
                     boxShadow: pkg.featured
-                      ? "0 25px 50px -12px rgba(30, 58, 138, 0.25)"
+                      ? "0 25px 50px -12px rgba(69, 25, 82, 0.25)"
                       : "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   }}
                   animate={
                     pkg.featured
                       ? {
                           boxShadow: [
-                            "0 20px 40px -12px rgba(30, 58, 138, 0.15)",
-                            "0 25px 50px -12px rgba(30, 58, 138, 0.25)",
-                            "0 20px 40px -12px rgba(30, 58, 138, 0.15)",
+                            "0 20px 40px -12px rgba(69, 25, 82, 0.15)",
+                            "0 25px 50px -12px rgba(69, 25, 82, 0.25)",
+                            "0 20px 40px -12px rgba(69, 25, 82, 0.15)",
                           ],
                         }
                       : {}
@@ -537,20 +499,20 @@ export default function Home() {
                   <Card
                     className={`${
                       pkg.featured
-                        ? "border-4 border-primary-navy shadow-2xl scale-105"
+                        ? "border-4 border-primary-dark shadow-2xl scale-105"
                         : "border-2 border-gray-200 shadow-xl"
                     } hover:ring-2 hover:ring-accent-gold/50 transition-all duration-300 bg-white relative h-full`}
                   >
                     {pkg.featured && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-navy text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-dark text-white px-4 py-1 rounded-full text-sm font-semibold">
                         RECOMMENDED
                       </div>
                     )}
                     <CardHeader className="text-center">
                       <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                      <div className="text-4xl font-bold text-primary-navy font-serif">{pkg.price}</div>
+                      <div className="text-4xl font-bold text-primary-dark font-serif">{pkg.price}</div>
                       <CardDescription className="text-sm">{pkg.priceNote}</CardDescription>
-                      <CardDescription className="text-base font-semibold text-deep mt-2">
+                      <CardDescription className="text-base font-semibold text-body mt-2">
                         {pkg.occupancy}
                       </CardDescription>
                     </CardHeader>
@@ -558,8 +520,8 @@ export default function Home() {
                       <ul className="space-y-3 mb-6">
                         {pkg.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <span className="text-primary-navy mr-2 font-bold">✓</span>
-                            <span className="text-deep leading-relaxed">{feature}</span>
+                            <span className="text-primary-dark mr-2 font-bold">✓</span>
+                            <span className="text-body leading-relaxed">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -571,8 +533,8 @@ export default function Home() {
                         <Button
                           className={`w-full ${
                             pkg.featured
-                              ? "bg-primary-navy hover:bg-primary-navy/90 text-white shadow-lg"
-                              : "bg-white border-2 border-primary-navy text-primary-navy hover:bg-blue-50"
+                              ? "bg-primary-dark hover:bg-accent-gold text-white shadow-lg"
+                              : "bg-white border-2 border-primary-dark text-primary-dark hover:bg-accent-gold hover:text-white"
                           } transition-all duration-300`}
                         >
                           Join Waitlist
@@ -587,15 +549,15 @@ export default function Home() {
 
           <FadeIn delay={0.4}>
             <div className="max-w-3xl mx-auto">
-              <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-lg border-2 border-primary-navy/20 shadow-lg">
+              <div className="bg-white p-8 rounded-lg border-2 border-primary-dark/20 shadow-lg">
                 <div className="mb-6">
-                  <p className="text-deep leading-relaxed text-base mb-4">
-                    <span className="font-bold text-primary-navy">Additional Person Pricing:</span> If you wish to bring
+                  <p className="text-body leading-relaxed text-base mb-4">
+                    <span className="font-bold text-primary-dark">Additional Person Pricing:</span> If you wish to bring
                     an additional person (spouse/practice partner), the cost is Rs. 60,500/- (including GST). This
                     includes access to all sessions, meals, and materials but does not include accommodation.
                   </p>
-                  <p className="text-deep leading-relaxed text-base">
-                    <span className="font-bold text-primary-navy">Note:</span> For those opting for double occupancy, if
+                  <p className="text-body leading-relaxed text-base">
+                    <span className="font-bold text-primary-dark">Note:</span> For those opting for double occupancy, if
                     you don't have a roommate, we'll pair you with another attendee to ensure everyone gets the best
                     value.
                   </p>
@@ -608,8 +570,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-32 px-4 section-canvas">
+      <section id="faq" className="py-32 px-4 bg-surface">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <SectionHeader title="What's Your Take…?" subtitle="Common objections and honest answers" />
@@ -684,10 +645,10 @@ export default function Home() {
                     value={`objection-${index}`}
                     className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-deep hover:text-primary-navy hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-body hover:text-primary-dark hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-deep/80 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-body/80 leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -737,10 +698,10 @@ export default function Home() {
                     value={`general-${index}`}
                     className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-deep hover:text-primary-navy hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-body hover:text-primary-dark hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-deep/80 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-body/80 leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -751,8 +712,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Venue Section */}
-      <section id="venue" className="py-32 px-4 section-sepia">
+      <section id="venue" className="py-32 px-4 bg-canvas">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <SectionHeader title="Venue" subtitle="The Gift City Club, Gandhinagar" />
@@ -762,18 +722,18 @@ export default function Home() {
             <TiltCard>
               <div className="bg-white border-2 border-gray-100 p-12">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-primary-navy mb-2 font-serif">The Gift City Club</h3>
-                  <p className="text-xl text-deep mb-4">Gandhinagar</p>
-                  <p className="text-lg text-deep/70 italic">(A member of Radisson individuals)</p>
+                  <h3 className="text-3xl font-bold text-primary-dark mb-2 font-serif">The Gift City Club</h3>
+                  <p className="text-xl text-body mb-4">Gandhinagar</p>
+                  <p className="text-lg text-body/70 italic">(A member of Radisson individuals)</p>
                 </div>
 
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-deep leading-relaxed text-lg mb-6">
+                  <p className="text-body leading-relaxed text-lg mb-6">
                     Experience world-class facilities in the heart of Gujarat's premier financial district. The Gift
                     City Club offers a sophisticated, professional environment perfect for intensive learning and
                     meaningful networking.
                   </p>
-                  <p className="text-deep leading-relaxed text-lg">
+                  <p className="text-body leading-relaxed text-lg">
                     With state-of-the-art conference facilities, comfortable accommodations, and excellent dining
                     options, the venue is designed to ensure your complete focus on practice transformation without any
                     distractions.
@@ -781,9 +741,9 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 pt-8 border-t-2 border-gray-200">
-                  <h4 className="text-xl font-bold text-primary-navy mb-4">Event Dates</h4>
-                  <p className="text-2xl font-semibold text-deep">10-12 January, 2025</p>
-                  <p className="text-lg text-deep/70 mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
+                  <h4 className="text-xl font-bold text-primary-dark mb-4">Event Dates</h4>
+                  <p className="text-2xl font-semibold text-body">10-12 January, 2025</p>
+                  <p className="text-lg text-body/70 mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
                 </div>
               </div>
             </TiltCard>
@@ -793,8 +753,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Contact Section */}
-      <section id="contact" className="py-32 px-4 bg-primary-navy">
+      <section id="contact" className="py-32 px-4 bg-primary-dark">
         <div className="max-w-4xl mx-auto text-center text-white">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif">Get in Touch</h2>
@@ -831,79 +790,81 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <PremiumButton size="lg" className="bg-white text-primary-dark hover:bg-gray-100 text-lg px-12 py-6">
+            <PremiumButton
+              size="lg"
+              className="bg-white text-primary-dark hover:bg-accent-gold hover:text-white text-lg px-12 py-6"
+            >
               Join the Waitlist
             </PremiumButton>
           </FadeIn>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-canvas text-body py-12 px-4 border-t-2 border-gray-200">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-2 font-serif">DERMAPRENEUR 2025</h3>
-            <p className="text-gray-400">India's Premier Practice Management Workshop for Dermatologists</p>
+            <h3 className="text-2xl font-bold mb-2 font-serif text-primary-dark">DERMAPRENEUR 2025</h3>
+            <p className="text-body/70">India's Premier Practice Management Workshop for Dermatologists</p>
           </div>
           <div className="flex flex-wrap justify-center gap-6 mb-6">
             <motion.a
               href="#home"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               Home
             </motion.a>
             <motion.a
               href="#about"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               About
             </motion.a>
             <motion.a
               href="#speakers"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               Speaker
             </motion.a>
             <motion.a
               href="#pricing"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               Pricing
             </motion.a>
             <motion.a
               href="#faq"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               FAQ
             </motion.a>
             <motion.a
               href="#venue"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               Venue
             </motion.a>
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.1, color: "#60a5fa" }}
+              whileHover={{ scale: 1.1, color: "#F39F5A" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-accent-gold transition-colors"
             >
               Contact
             </motion.a>
           </div>
-          <p className="text-gray-500 text-sm">
+          <p className="text-body/50 text-sm">
             © 2025 Dermapreneur. All rights reserved. | 10-12 January, 2025 | The Gift City Club, Gandhinagar
           </p>
         </div>
