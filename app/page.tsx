@@ -15,6 +15,7 @@ import { FeatureCard } from "@/components/feature-card"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { QuoteBlock } from "@/components/quote-block"
 import { CountdownTimer } from "@/components/countdown-timer" // Assuming this component exists based on usage
+import { StickyPromise } from "@/components/sticky-promise"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -47,44 +48,64 @@ export default function Home() {
             />
           </svg>
         </div>
+        <div className="absolute right-0 top-20 md:right-10 md:top-32">
+          <div className="text-[200px] md:text-[300px] font-bold text-white/5 leading-none font-serif select-none">
+            2025
+          </div>
+        </div>
 
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left two-thirds: content */}
-            <div className="lg:col-span-2 text-left text-white">
-              <FadeIn>
-                <motion.div
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
-                    <p className="text-sm md:text-base font-semibold tracking-wide">
-                      India's one and only INTENSIVE PRACTICE MANAGEMENT WORKSHOP
-                    </p>
-                  </div>
-                  <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight">
-                    DERMAPRENEUR 2025
-                  </h1>
-                  <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
-                  <p className="text-lg md:text-xl mb-12 text-white/80">
-                    10-12 January, 2025 | The Gift City Club, Radisson, Gandhinagar
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="max-w-3xl">
+            <FadeIn>
+              <motion.div
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
+                  <p className="text-sm md:text-base font-semibold tracking-wide">
+                    India's one and only INTENSIVE PRACTICE MANAGEMENT WORKSHOP
                   </p>
-                </motion.div>
-              </FadeIn>
-
-              <FadeIn delay={0.2}>
-                <div className="mb-12">
-                  <CountdownTimer targetDate={new Date("2025-01-10T09:00:00")} />
                 </div>
-              </FadeIn>
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight">
+                  DERMAPRENEUR 2025
+                </h1>
+                <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
+                <p className="text-lg md:text-xl mb-12 text-white/80">
+                  10-12 January, 2025 | The Gift City Club, Radisson, Gandhinagar
+                </p>
+              </motion.div>
+            </FadeIn>
 
-              <FadeIn delay={0.4}>
-                <PremiumButton size="lg" className="text-lg px-12 py-6">
-                  ADD YOUR NAME IN THE WAITLIST
-                </PremiumButton>
-              </FadeIn>
-            </div>
+            <FadeIn delay={0.2}>
+              <div className="mb-12">
+                <CountdownTimer targetDate={new Date("2025-01-10T09:00:00")} />
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: "0 0 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.2)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Button
+                  size="lg"
+                  className="text-lg px-12 py-6 bg-white text-[#1e3a8a] hover:bg-white/90 font-bold shadow-2xl relative overflow-hidden group"
+                >
+                  <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
+                  {/* Ripple effect on hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 2, opacity: [0, 0.5, 0] }}
+                    transition={{ duration: 0.6 }}
+                  />
+                </Button>
+              </motion.div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -170,7 +191,6 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* About Section */}
       <section className="py-32 px-4">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
@@ -180,20 +200,49 @@ export default function Home() {
             />
           </FadeIn>
 
-          {/* 40/60 Split Layout */}
-          <div className="grid lg:grid-cols-5 gap-12 mb-16">
-            {/* 40% column - Testimonial/Quote */}
-            <div className="lg:col-span-2">
+          {/* Magazine Grid: 30% for numbers, 70% for description */}
+          <div className="grid lg:grid-cols-10 gap-12 mb-16">
+            {/* 30% column - Numbered list displayed vertically */}
+            <div className="lg:col-span-3">
               <FadeIn delay={0.2}>
-                <QuoteBlock
-                  quote="Delaying to learn marketing & practice management until your clinic becomes a top choice is like waiting to put on sunscreen only after you've got a sunburn."
-                  author="Practice Management Wisdom"
-                />
+                <div className="space-y-8">
+                  {[
+                    {
+                      number: "01",
+                      title: "2 and half day",
+                      description: "2 and half days' intensive fun-filled experiential learning experience.",
+                    },
+                    {
+                      number: "02",
+                      title: "Designated",
+                      description: "Designed for inner circle only who are having the growth mindset.",
+                    },
+                    {
+                      number: "03",
+                      title: "Narrowing down",
+                      description: "Narrowing down seats to the limited numbers only.",
+                    },
+                    {
+                      number: "04",
+                      title: "Restricted",
+                      description:
+                        "Restricted number of delegates to just like-minded and growth-minded dermatologists.",
+                    },
+                  ].map((item, index) => (
+                    <FadeIn key={index} delay={0.3 + index * 0.1}>
+                      <div className="border-l-4 border-[#1e3a8a] pl-6 py-2">
+                        <div className="text-5xl font-bold text-[#0f2b6a]/20 mb-2 font-serif">{item.number}</div>
+                        <h3 className="text-xl font-bold text-[#0f2b6a] mb-2 font-serif">{item.title}</h3>
+                        <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                      </div>
+                    </FadeIn>
+                  ))}
+                </div>
               </FadeIn>
             </div>
 
-            {/* 60% column - Main content */}
-            <div className="lg:col-span-3">
+            {/* 70% column - Main description text */}
+            <div className="lg:col-span-7">
               <FadeIn delay={0.3}>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-gray-700 leading-relaxed text-lg mb-6">
@@ -208,39 +257,12 @@ export default function Home() {
                     dermatologists ready to transform their practice.
                   </p>
 
-                  {/* Key Points Grid */}
-                  <div className="grid md:grid-cols-2 gap-6 mt-8">
-                    {[
-                      {
-                        number: "01",
-                        title: "2 and half day",
-                        description: "2 and half days' intensive fun-filled experiential learning experience.",
-                      },
-                      {
-                        number: "02",
-                        title: "Designated",
-                        description: "Designed for inner circle only who are having the growth mindset.",
-                      },
-                      {
-                        number: "03",
-                        title: "Narrowing down",
-                        description: "Narrowing down seats to the limited numbers only.",
-                      },
-                      {
-                        number: "04",
-                        title: "Restricted",
-                        description:
-                          "Restricted number of delegates to just like-minded and growth-minded dermatologists.",
-                      },
-                    ].map((item, index) => (
-                      <FadeIn key={index} delay={0.4 + index * 0.1}>
-                        <div className="p-6 bg-white border border-[#e0e0e0] rounded-lg hover:border-[#1e3a8a]/30 transition-colors duration-300">
-                          <div className="text-4xl font-bold text-[#0f2b6a]/30 mb-3 font-serif">{item.number}</div>
-                          <h3 className="text-lg font-bold text-[#0f2b6a] mb-2 font-serif">{item.title}</h3>
-                          <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
-                        </div>
-                      </FadeIn>
-                    ))}
+                  {/* Quote Block */}
+                  <div className="mt-12">
+                    <QuoteBlock
+                      quote="Delaying to learn marketing & practice management until your clinic becomes a top choice is like waiting to put on sunscreen only after you've got a sunburn."
+                      author="Practice Management Wisdom"
+                    />
                   </div>
                 </div>
               </FadeIn>
@@ -251,9 +273,10 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Speakers Section */}
-      <section id="speakers" className="py-32 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section id="speakers" className="py-32 px-4 bg-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_#f5f5f5_100%)]" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
             <SectionHeader
               title="Keynote Speaker"
@@ -262,24 +285,35 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="max-w-5xl mx-auto">
-              <TiltCard>
-                <div className="bg-white border-2 border-gray-100 p-12 text-center">
-                  <div className="mb-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-5 gap-12 items-start">
+                {/* Left side - Photo placeholder */}
+                <div className="lg:col-span-2">
+                  <div className="aspect-[3/4] bg-gradient-to-br from-[#1e3a8a]/10 to-[#2563eb]/5 rounded-lg border-2 border-[#1e3a8a]/20 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="text-6xl mb-4">👨‍⚕️</div>
+                      <p className="text-sm text-gray-500">Speaker Photo</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right side - Bio text */}
+                <div className="lg:col-span-3">
+                  <div className="mb-6">
                     <h3 className="text-4xl font-bold text-[#1e3a8a] mb-4 font-serif">Ilesh Khakhkhar</h3>
-                    <div className="flex flex-wrap justify-center gap-3 text-sm text-gray-600 mb-6">
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Leader</span>
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Entrepreneur</span>
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Marketer</span>
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Keynote Speaker</span>
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Author</span>
-                      <span className="px-4 py-2 bg-blue-50 rounded-full">Certified Business Coach</span>
+                    <div className="flex flex-wrap gap-2 text-sm text-gray-600 mb-6">
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Leader</span>
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Entrepreneur</span>
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Marketer</span>
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Keynote Speaker</span>
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Author</span>
+                      <span className="px-3 py-1 bg-blue-50 rounded-full">Certified Business Coach</span>
                     </div>
                     <p className="text-lg text-gray-700 mb-2">20+ years in Derma marketing</p>
-                    <p className="text-lg text-gray-700 font-semibold">Trained 500+ Dermatologists</p>
+                    <p className="text-lg text-gray-700 font-semibold mb-6">Trained 500+ Dermatologists</p>
                   </div>
 
-                  <div className="text-left space-y-4 text-gray-700 leading-relaxed">
+                  <div className="space-y-4 text-gray-700 leading-relaxed font-serif text-base">
                     <p>
                       Ilesh Khakhkhar is a renowned serial entrepreneur, practice management expert, and keynote speaker
                       with over 20 years of experience in dermatology marketing. As a John Maxwell Team Certified coach
@@ -290,13 +324,13 @@ export default function Home() {
                       excellence specifically tailored for dermatology practices. Ilesh led the highly successful CDSI
                       AI BOOSTER workshop in 2024 and continues to drive innovation in dermatology practice management.
                     </p>
-                    <p className="text-[#1e3a8a] font-semibold">
+                    <p className="text-[#1e3a8a] font-semibold font-sans">
                       Ilesh will lead approximately 80% of the Dermapreneur 2025 sessions, sharing actionable insights
                       you can implement immediately in your practice.
                     </p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -304,9 +338,12 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-32 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section id="pricing" className="py-32 px-4 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_#f5f5f5_100%)]" />
+
+        <StickyPromise />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
             <SectionHeader
               title="Pricing & Packages"
@@ -413,35 +450,22 @@ export default function Home() {
             ))}
           </div>
 
-          <FadeIn delay={0.3}>
-            <div className="max-w-4xl mx-auto">
-              <TiltCard>
-                <div className="bg-white border-2 border-gray-100 p-10">
-                  <h3 className="text-2xl font-bold text-[#1e3a8a] mb-4 font-serif text-center">Additional Options</h3>
-                  <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    <div className="text-center p-6 bg-blue-50 rounded-lg">
-                      <p className="text-lg font-semibold text-gray-800 mb-2">Extra Person (Package 1)</p>
-                      <p className="text-3xl font-bold text-[#1e3a8a]">Rs. 30,000/-</p>
-                      <p className="text-sm text-gray-600">(including GST) per person</p>
-                    </div>
-                    <div className="text-center p-6 bg-blue-50 rounded-lg">
-                      <p className="text-lg font-semibold text-gray-800 mb-2">Extra Person (Package 2)</p>
-                      <p className="text-3xl font-bold text-[#1e3a8a]">Rs. 40,000/-</p>
-                      <p className="text-sm text-gray-600">(including GST) per person</p>
-                    </div>
-                  </div>
-
-                  <div className="border-t-2 border-gray-200 pt-8">
-                    <h4 className="text-xl font-bold text-[#1e3a8a] mb-4">MY PROMISE TO YOU</h4>
-                    <p className="text-gray-700 leading-relaxed text-lg italic">
-                      I guarantee that you'll receive at least{" "}
-                      <span className="font-bold text-[#1e3a8a]">3x the value</span> of what you've put in. And if, by
-                      the end of the 2.5 days, you don't feel it's been worth every minute and penny, then your{" "}
-                      <span className="font-bold text-[#1e3a8a]">investment is on me—no questions asked.</span>
-                    </p>
-                  </div>
+          <FadeIn delay={0.4}>
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-lg border-2 border-[#1e3a8a]/20 shadow-lg">
+                <div className="mb-6">
+                  <p className="text-gray-700 leading-relaxed text-base mb-4">
+                    <span className="font-bold text-[#1e3a8a]">Additional Person Pricing:</span> If you wish to bring an
+                    additional person (spouse/practice partner), the cost is Rs. 60,500/- (including GST). This includes
+                    access to all sessions, meals, and materials but does not include accommodation.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    <span className="font-bold text-[#1e3a8a]">Note:</span> For those opting for double occupancy, if
+                    you don't have a roommate, we'll pair you with another attendee to ensure everyone gets the best
+                    value.
+                  </p>
                 </div>
-              </TiltCard>
+              </div>
             </div>
           </FadeIn>
         </div>
