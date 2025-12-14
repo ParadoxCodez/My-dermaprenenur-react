@@ -4,60 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Implementing new professional color system */
-  /* Professional Color System - Medical Conference Design */
+  /* Deep Plum & Gold Professional Color System */
 
-  /* Primary Colors (Authority & Trust) */
-  --primary-navy: #1b4f72;
-  --deep-text: #333333;
+  /* Primary Colors */
+  --primary-dark: #451952; /* Deep Plum - Hero BG, Speaker Block BG, main headers */
+  --accent-gold: #f39f5a; /* Gold - Hover states, active links, highlights */
 
-  /* Background Colors (Layered & Textured) */
-  --neutral-canvas: #fbfbfb;
-  --section-sepia: #f0f4f7;
+  /* Text Colors */
+  --text-body: #1d1a39; /* Deep Near-Black - Text on light backgrounds */
 
-  /* Interactive Color (Warm Professional Accent) */
-  --accent-gold: #f9a825;
+  /* Background Colors */
+  --bg-canvas: #f9f9f9; /* Global base background */
+  --bg-surface: #ffffff; /* Card and component backgrounds */
 
   /* Design Token Mappings */
-  --background: 251 251 251; /* #FBFBFB - Neutral Canvas */
-  --foreground: 51 51 51; /* #333333 - Deep Text */
-  --card: 255 255 255;
-  --card-foreground: 51 51 51;
+  --background: 249 249 249; /* #F9F9F9 - Canvas */
+  --foreground: 29 26 57; /* #1D1A39 - Body Text */
+  --card: 255 255 255; /* Surface White */
+  --card-foreground: 29 26 57;
   --popover: 255 255 255;
-  --popover-foreground: 51 51 51;
-  --primary: 27 79 114; /* #1B4F72 - Primary Navy */
+  --popover-foreground: 29 26 57;
+  --primary: 69 25 82; /* #451952 - Deep Plum */
   --primary-foreground: 255 255 255;
-  --secondary: 240 244 247; /* #F0F4F7 - Section Sepia */
-  --secondary-foreground: 51 51 51;
-  --muted: 240 244 247;
+  --secondary: 249 249 249;
+  --secondary-foreground: 29 26 57;
+  --muted: 249 249 249;
   --muted-foreground: 117 117 117;
-  --accent: 249 168 37; /* #F9A825 - Accent Gold */
-  --accent-foreground: 51 51 51;
+  --accent: 243 159 90; /* #F39F5A - Accent Gold */
+  --accent-foreground: 29 26 57;
   --destructive: 211 47 47;
   --destructive-foreground: 255 255 255;
   --border: 224 224 224;
   --input: 224 224 224;
-  --ring: 27 79 114; /* #1B4F72 - Primary Navy */
+  --ring: 243 159 90; /* Accent Gold for focus rings */
   --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -74,58 +54,46 @@
 }
 
 .dark {
-  /* Dark mode colors remain minimal, focus is on light theme */
-  --background: 20 20 20;
-  --foreground: 251 251 251;
-  --card: 30 30 30;
-  --card-foreground: 251 251 251;
-  --popover: 30 30 30;
-  --popover-foreground: 251 251 251;
-  --primary: 27 79 114;
+  --background: 29 26 57;
+  --foreground: 249 249 249;
+  --card: 69 25 82;
+  --card-foreground: 255 255 255;
+  --popover: 69 25 82;
+  --popover-foreground: 255 255 255;
+  --primary: 69 25 82;
   --primary-foreground: 255 255 255;
   --secondary: 50 50 50;
-  --secondary-foreground: 251 251 251;
+  --secondary-foreground: 249 249 249;
   --muted: 50 50 50;
   --muted-foreground: 180 180 180;
-  --accent: 249 168 37;
-  --accent-foreground: 20 20 20;
+  --accent: 243 159 90;
+  --accent-foreground: 29 26 57;
   --destructive: 239 68 68;
-  --destructive-foreground: 251 251 251;
+  --destructive-foreground: 255 255 255;
   --border: 60 60 60;
   --input: 60 60 60;
-  --ring: 27 79 114;
+  --ring: 243 159 90;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
-  /* Updated font stack for professional serif and sans-serif */
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
 
-  /* Map color tokens to RGB format for Tailwind */
-  --color-background: rgb(var(--background));
-  --color-foreground: rgb(var(--foreground));
-  --color-card: rgb(var(--card));
-  --color-card-foreground: rgb(var(--card-foreground));
-  --color-popover: rgb(var(--popover));
-  --color-popover-foreground: rgb(var(--popover-foreground));
-  --color-primary: rgb(var(--primary));
-  --color-primary-foreground: rgb(var(--primary-foreground));
-  --color-secondary: rgb(var(--secondary));
-  --color-secondary-foreground: rgb(var(--secondary-foreground));
-  --color-muted: rgb(var(--muted));
-  --color-muted-foreground: rgb(var(--muted-foreground));
-  --color-accent: rgb(var(--accent));
-  --color-accent-foreground: rgb(var(--accent-foreground));
-  --color-destructive: rgb(var(--destructive));
-  --color-destructive-foreground: rgb(var(--destructive-foreground));
-  --color-border: rgb(var(--border));
-  --color-input: rgb(var(--input));
-  --color-ring: rgb(var(--ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -150,6 +118,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -165,83 +137,64 @@
     @apply border-border outline-ring/50;
   }
   body {
-    /* Global subtle dot pattern texture on Neutral Canvas background */
     @apply bg-background text-foreground;
-    background-color: #fbfbfb;
-    background-image: radial-gradient(circle, #e8e8e8 0.5px, transparent 0.5px);
+    background-color: #f9f9f9;
+    background-image: radial-gradient(circle, #e0e0e0 0.5px, transparent 0.5px);
     background-size: 20px 20px;
     background-attachment: fixed;
   }
 }
 
 @layer utilities {
-  /* New professional color utilities */
-
-  /* Primary Navy */
-  .text-primary-navy {
-    color: #1b4f72;
+  /* Primary Dark (Deep Plum) */
+  .text-primary-dark {
+    color: #451952;
   }
-  .bg-primary-navy {
-    background-color: #1b4f72;
+  .bg-primary-dark {
+    background-color: #451952;
   }
-  .border-primary-navy {
-    border-color: #1b4f72;
+  .border-primary-dark {
+    border-color: #451952;
   }
 
-  /* Deep Text */
-  .text-deep {
-    color: #333333;
-  }
-
-  /* Neutral Canvas */
-  .bg-neutral-canvas {
-    background-color: #fbfbfb;
-  }
-
-  /* Section Sepia */
-  .bg-section-sepia {
-    background-color: #f0f4f7;
-  }
-
-  /* Accent Gold (Interactive) */
+  /* Accent Gold */
   .text-accent-gold {
-    color: #f9a825;
+    color: #f39f5a;
   }
   .bg-accent-gold {
-    background-color: #f9a825;
+    background-color: #f39f5a;
   }
   .border-accent-gold {
-    border-color: #f9a825;
+    border-color: #f39f5a;
+  }
+
+  /* Text Body */
+  .text-body {
+    color: #1d1a39;
+  }
+
+  /* Background Canvas */
+  .bg-canvas {
+    background-color: #f9f9f9;
+  }
+
+  /* Background Surface */
+  .bg-surface {
+    background-color: #ffffff;
   }
 
   /* Section backgrounds with subtle texture */
   .section-canvas {
-    background-color: #fbfbfb;
-    background-image: radial-gradient(circle, #e8e8e8 0.5px, transparent 0.5px);
+    background-color: #f9f9f9;
+    background-image: radial-gradient(circle, #e0e0e0 0.5px, transparent 0.5px);
     background-size: 20px 20px;
   }
 
-  .section-sepia {
-    background-color: #f0f4f7;
-    background-image: radial-gradient(circle, #d8dce0 0.5px, transparent 0.5px);
+  .section-light {
+    background-color: #ffffff;
+    background-image: radial-gradient(circle, #f0f0f0 0.5px, transparent 0.5px);
     background-size: 20px 20px;
   }
-
-  /* Professional Tricolor Palette Utility Classes */
-
-  /* Primary Navy Utilities */
-
-  /* Accent Sky Blue Utilities */
-
-  /* Action Coral Utilities (Interactive/Hover) */
-
-  /* Surface White Utilities */
-
-  /* Background Light Utilities */
-
-  /* Text Dark Utilities */
-
-  /* Section background alternates */
 
   /* Subtle parallax effect for background patterns */
   .parallax-bg {

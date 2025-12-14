@@ -36,7 +36,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4 bg-primary-navy pt-20 relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center px-4 bg-primary-dark pt-20 relative overflow-hidden"
       >
         {/* Geometric accent element on the right */}
         <div className="absolute right-0 top-1/4 w-96 h-96 opacity-10">
@@ -112,7 +112,7 @@ export default function Home() {
                 >
                   <Button
                     size="lg"
-                    className="text-lg px-12 py-6 bg-white text-primary-navy hover:bg-accent-gold hover:text-white font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
+                    className="text-lg px-12 py-6 bg-white text-primary-dark hover:bg-accent-gold hover:text-white font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
                   >
                     <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
                     {/* Ripple effect on hover */}
@@ -134,7 +134,7 @@ export default function Home() {
 
       <section id="about" className="relative py-32 px-4 overflow-hidden">
         {/* Dark dramatic background (Primary Navy) for editorial impact */}
-        <div className="absolute inset-0 bg-primary-navy" />
+        <div className="absolute inset-0 bg-primary-dark" />
 
         {/* Subtle pattern overlay */}
         <div
@@ -181,14 +181,14 @@ export default function Home() {
             }}
           >
             {[
-              { icon: "🎯", title: "Hands-on Experience", color: "#F9A825" },
-              { icon: "📚", title: "Thought Provoking Workbooks", color: "#F9A825" },
-              { icon: "🎉", title: "Entertainment Evenings", color: "#F9A825" },
-              { icon: "💡", title: "Innovative Insights", color: "#F9A825" },
-              { icon: "🎓", title: "Fun Way Learning", color: "#F9A825" },
-              { icon: "🔧", title: "Actionable Ideas", color: "#F9A825" },
-              { icon: "🎭", title: "Engaging Role Plays", color: "#F9A825" },
-              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F9A825" },
+              { icon: "🎯", title: "Hands-on Experience", color: "#F39F5A" },
+              { icon: "📚", title: "Thought Provoking Workbooks", color: "#F39F5A" },
+              { icon: "🎉", title: "Entertainment Evenings", color: "#F39F5A" },
+              { icon: "💡", title: "Innovative Insights", color: "#F39F5A" },
+              { icon: "🎓", title: "Fun Way Learning", color: "#F39F5A" },
+              { icon: "🔧", title: "Actionable Ideas", color: "#F39F5A" },
+              { icon: "🎭", title: "Engaging Role Plays", color: "#F39F5A" },
+              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F39F5A" },
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -207,7 +207,6 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Stats Section with mixed-width columns */}
       <section className="py-32 px-4 section-canvas relative overflow-hidden">
         <FloatingShapes />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -247,11 +246,11 @@ export default function Home() {
                 className={index === 1 ? "md:col-span-2 lg:col-span-1" : ""}
               >
                 <FadeIn delay={index * 0.1}>
-                  <div className="text-center p-8 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="text-5xl md:text-6xl font-bold text-primary-navy mb-4 font-serif">
+                  <div className="text-center p-8 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-xl hover:border-accent-gold transition-all duration-300">
+                    <div className="text-5xl md:text-6xl font-bold text-primary-dark mb-4 font-serif">
                       <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <p className="text-lg text-deep font-semibold">{stat.label}</p>
+                    <p className="text-lg text-body font-semibold">{stat.label}</p>
                   </div>
                 </FadeIn>
               </motion.div>
@@ -262,8 +261,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* About Section */}
-      <section className="py-32 px-4 section-sepia">
+      <section className="py-32 px-4 bg-surface">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <SectionHeader
@@ -302,10 +300,10 @@ export default function Home() {
                     },
                   ].map((item, index) => (
                     <FadeIn key={index} delay={0.3 + index * 0.1}>
-                      <div className="border-l-4 border-primary-navy pl-6 py-2">
-                        <div className="text-5xl font-bold text-primary-navy/20 mb-2 font-serif">{item.number}</div>
-                        <h3 className="text-xl font-bold text-primary-navy mb-2 font-serif">{item.title}</h3>
-                        <p className="text-deep leading-relaxed text-sm">{item.description}</p>
+                      <div className="border-l-4 border-primary-dark pl-6 py-2">
+                        <div className="text-5xl font-bold text-primary-dark/20 mb-2 font-serif">{item.number}</div>
+                        <h3 className="text-xl font-bold text-primary-dark mb-2 font-serif">{item.title}</h3>
+                        <p className="text-body leading-relaxed text-sm">{item.description}</p>
                       </div>
                     </FadeIn>
                   ))}
@@ -317,13 +315,13 @@ export default function Home() {
             <div className="lg:col-span-7">
               <FadeIn delay={0.3}>
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-deep leading-relaxed text-lg mb-6">
+                  <p className="text-body leading-relaxed text-lg mb-6">
                     Dermapreneur 2025 is an exclusive, invitation-only workshop designed for growth-driven
                     dermatologists, offering a 2.5-day immersive experience in practice management and entrepreneurship.
                     With tailored strategies, hands-on learning, and cutting-edge insights, it empowers participants to
                     elevate their practices and achieve measurable business growth.
                   </p>
-                  <p className="text-deep leading-relaxed text-lg mb-8">
+                  <p className="text-body leading-relaxed text-lg mb-8">
                     Who isn't in the room is just as crucial as who is. That's why DERMAPRENEUR 2025 is an exclusive,
                     invitation-only workshop with strictly limited seats—reserved only for like-minded, growth-oriented
                     dermatologists ready to transform their practice.
@@ -345,8 +343,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Keynote Speaker Section - High-contrast editorial block with Primary Navy background */}
-      <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-navy">
+      <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-dark">
         {/* Subtle pattern overlay */}
         <div
           className="absolute inset-0 opacity-10"
@@ -834,7 +831,7 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <PremiumButton size="lg" className="bg-white text-primary-navy hover:bg-gray-100 text-lg px-12 py-6">
+            <PremiumButton size="lg" className="bg-white text-primary-dark hover:bg-gray-100 text-lg px-12 py-6">
               Join the Waitlist
             </PremiumButton>
           </FadeIn>
