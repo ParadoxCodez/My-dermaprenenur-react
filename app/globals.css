@@ -89,6 +89,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Add subtle vertical gradient from white to light gray for depth */
+    background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    background-attachment: fixed;
   }
 }
 
