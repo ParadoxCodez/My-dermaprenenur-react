@@ -35,12 +35,12 @@ export default function Home() {
 
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4 bg-primary-dark pt-20 relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center px-4 bg-primary-base pt-20 relative overflow-hidden"
       >
-        <div className="absolute right-0 top-1/4 w-96 h-96 opacity-10">
+        <div className="absolute right-0 top-1/4 w-96 h-96 opacity-5">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path
-              fill="#ffffff"
+              fill="#F9A825"
               d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,39.8,76.8C25.8,84.6,8.8,87.6,-7.5,84.9C-23.8,82.2,-39.4,73.8,-53.2,63.8C-67,53.8,-79,42.2,-85.4,27.8C-91.8,13.4,-92.6,-3.8,-87.8,-19.4C-83,-35,-72.6,-49,-59.4,-57.8C-46.2,-66.6,-30.2,-70.2,-15.1,-73.8C0,-77.4,15.1,-81,29.7,-79.8C44.3,-78.6,58.4,-72.6,44.7,-76.4Z"
               transform="translate(100 100)"
             />
@@ -69,16 +69,16 @@ export default function Home() {
                 }}
                 viewport={{ once: false }}
               >
-                <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-white/20">
-                  <p className="text-sm md:text-base font-semibold tracking-wide text-white">
+                <div className="inline-block bg-surface-dark backdrop-blur-sm px-6 py-2 rounded-full mb-8 border border-accent-glow/30">
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-contrast">
                     India's One and Only Intensive Practice Management Workshop
                   </p>
                 </div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight text-white">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-serif leading-tight text-contrast">
                   DERMAPRENEUR 2025
                 </h1>
-                <p className="text-xl md:text-2xl mb-4 text-white/90">Dedicated to Dermatologists</p>
-                <p className="text-lg md:text-xl mb-12 text-white/80">
+                <p className="text-xl md:text-2xl mb-4 text-muted-custom">Dedicated to Dermatologists</p>
+                <p className="text-lg md:text-xl mb-12 text-muted-custom">
                   10-12 January, 2025 | The Gift City Club, Radisson, Gandhinagar
                 </p>
               </motion.div>
@@ -109,11 +109,11 @@ export default function Home() {
                 >
                   <Button
                     size="lg"
-                    className="text-lg px-12 py-6 bg-white text-primary-dark hover:bg-accent-gold hover:text-white font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
+                    className="text-lg px-12 py-6 bg-accent-glow text-primary-base hover:bg-accent-glow/90 hover:glow-accent-strong font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
                   >
                     <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
                     <motion.div
-                      className="absolute inset-0 bg-white/20"
+                      className="absolute inset-0 bg-white/10"
                       initial={{ scale: 0, opacity: 0 }}
                       whileHover={{ scale: 2, opacity: [0, 0.5, 0] }}
                       transition={{ duration: 0.6 }}
@@ -128,7 +128,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="about" className="relative py-32 px-4 overflow-hidden bg-surface">
+      <section id="about" className="relative py-32 px-4 overflow-hidden bg-surface-dark">
         <div className="relative max-w-7xl mx-auto z-10">
           <FadeIn>
             <div className="text-center mb-16">
@@ -139,11 +139,11 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="inline-block"
               >
-                <div className="w-16 h-1 bg-accent-gold mx-auto mb-6" />
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-primary-dark">
+                <div className="w-16 h-1 bg-accent-glow mx-auto mb-6" />
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-contrast">
                   What to Expect
                 </h2>
-                <p className="text-xl text-body max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-muted-custom max-w-3xl mx-auto leading-relaxed">
                   2 and half days' intensive fun-filled experiential learning experience
                 </p>
               </motion.div>
@@ -164,14 +164,14 @@ export default function Home() {
             }}
           >
             {[
-              { icon: "🎯", title: "Hands-on Experience", color: "#F39F5A" },
-              { icon: "📚", title: "Thought Provoking Workbooks", color: "#F39F5A" },
-              { icon: "🎉", title: "Entertainment Evenings", color: "#F39F5A" },
-              { icon: "💡", title: "Innovative Insights", color: "#F39F5A" },
-              { icon: "🎓", title: "Fun Way Learning", color: "#F39F5A" },
-              { icon: "🔧", title: "Actionable Ideas", color: "#F39F5A" },
-              { icon: "🎭", title: "Engaging Role Plays", color: "#F39F5A" },
-              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F39F5A" },
+              { icon: "🎯", title: "Hands-on Experience", color: "#F9A825" },
+              { icon: "📚", title: "Thought Provoking Workbooks", color: "#F9A825" },
+              { icon: "🎉", title: "Entertainment Evenings", color: "#F9A825" },
+              { icon: "💡", title: "Innovative Insights", color: "#F9A825" },
+              { icon: "🎓", title: "Fun Way Learning", color: "#F9A825" },
+              { icon: "🔧", title: "Actionable Ideas", color: "#F9A825" },
+              { icon: "🎭", title: "Engaging Role Plays", color: "#F9A825" },
+              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F9A825" },
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -190,7 +190,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section className="py-32 px-4 bg-canvas relative overflow-hidden">
+      <section className="py-32 px-4 bg-primary-base relative overflow-hidden">
         <FloatingShapes />
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
@@ -229,11 +229,11 @@ export default function Home() {
                 className={index === 1 ? "md:col-span-2 lg:col-span-1" : ""}
               >
                 <FadeIn delay={index * 0.1}>
-                  <div className="text-center p-8 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-xl hover:border-accent-gold transition-all duration-300">
-                    <div className="text-5xl md:text-6xl font-bold text-primary-dark mb-4 font-serif">
+                  <div className="text-center p-8 bg-surface-dark rounded-lg border border-accent-glow/20 shadow-lg hover:shadow-xl hover:border-accent-glow hover:glow-accent transition-all duration-300">
+                    <div className="text-5xl md:text-6xl font-bold text-accent-glow mb-4 font-serif">
                       <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <p className="text-lg text-body font-semibold">{stat.label}</p>
+                    <p className="text-lg text-contrast font-semibold">{stat.label}</p>
                   </div>
                 </FadeIn>
               </motion.div>
@@ -244,7 +244,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section className="py-32 px-4 bg-surface">
+      <section className="py-32 px-4 bg-surface-dark">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <SectionHeader
@@ -281,10 +281,10 @@ export default function Home() {
                     },
                   ].map((item, index) => (
                     <FadeIn key={index} delay={0.3 + index * 0.1}>
-                      <div className="border-l-4 border-primary-dark pl-6 py-2">
-                        <div className="text-5xl font-bold text-primary-dark/20 mb-2 font-serif">{item.number}</div>
-                        <h3 className="text-xl font-bold text-primary-dark mb-2 font-serif">{item.title}</h3>
-                        <p className="text-body leading-relaxed text-sm">{item.description}</p>
+                      <div className="border-l-4 border-accent-glow pl-6 py-2">
+                        <div className="text-5xl font-bold text-accent-glow/30 mb-2 font-serif">{item.number}</div>
+                        <h3 className="text-xl font-bold text-contrast mb-2 font-serif">{item.title}</h3>
+                        <p className="text-muted-custom leading-relaxed text-sm">{item.description}</p>
                       </div>
                     </FadeIn>
                   ))}
@@ -295,13 +295,13 @@ export default function Home() {
             <div className="lg:col-span-7">
               <FadeIn delay={0.3}>
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-body leading-relaxed text-lg mb-6">
+                  <p className="text-muted-custom leading-relaxed text-lg mb-6">
                     Dermapreneur 2025 is an exclusive, invitation-only workshop designed for growth-driven
                     dermatologists, offering a 2.5-day immersive experience in practice management and entrepreneurship.
                     With tailored strategies, hands-on learning, and cutting-edge insights, it empowers participants to
                     elevate their practices and achieve measurable business growth.
                   </p>
-                  <p className="text-body leading-relaxed text-lg mb-8">
+                  <p className="text-muted-custom leading-relaxed text-lg mb-8">
                     Who isn't in the room is just as crucial as who is. That's why DERMAPRENEUR 2025 is an exclusive,
                     invitation-only workshop with strictly limited seats—reserved only for like-minded, growth-oriented
                     dermatologists ready to transform their practice.
@@ -322,11 +322,11 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-dark">
+      <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-base">
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #F9A825 1px, transparent 1px)",
             backgroundSize: "30px 30px",
           }}
         />
@@ -343,11 +343,11 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="inline-block"
               >
-                <div className="w-16 h-1 bg-accent-gold mx-auto mb-6" />
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-white">
+                <div className="w-16 h-1 bg-accent-glow mx-auto mb-6" />
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-contrast">
                   Keynote Speaker
                 </h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-muted-custom max-w-3xl mx-auto leading-relaxed">
                   Learn from the industry's leading expert in dermatology practice management
                 </p>
               </motion.div>
@@ -358,42 +358,42 @@ export default function Home() {
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-5 gap-12 items-start">
                 <div className="lg:col-span-2">
-                  <div className="aspect-[3/4] bg-white/10 backdrop-blur-sm rounded-lg border-2 border-accent-gold/50 flex items-center justify-center">
+                  <div className="aspect-[3/4] bg-surface-dark backdrop-blur-sm rounded-lg border-2 border-accent-glow/50 flex items-center justify-center glow-accent">
                     <div className="text-center p-8">
                       <div className="text-6xl mb-4">👨‍⚕️</div>
-                      <p className="text-sm text-white/60">Speaker Photo</p>
+                      <p className="text-sm text-muted-custom">Speaker Photo</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-3">
                   <div className="mb-6">
-                    <h3 className="text-4xl font-bold text-white mb-4 font-serif">Ilesh Khakhkhar</h3>
+                    <h3 className="text-4xl font-bold text-contrast mb-4 font-serif">Ilesh Khakhkhar</h3>
                     <div className="flex flex-wrap gap-2 text-sm mb-6">
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Leader
                       </span>
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Entrepreneur
                       </span>
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Marketer
                       </span>
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Keynote Speaker
                       </span>
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Author
                       </span>
-                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                      <span className="px-3 py-1 bg-accent-glow/20 text-accent-glow rounded-full border border-accent-glow/50">
                         Certified Business Coach
                       </span>
                     </div>
-                    <p className="text-lg text-white/90 mb-2">20+ years in Derma marketing</p>
-                    <p className="text-lg text-white font-semibold mb-6">Trained 500+ Dermatologists</p>
+                    <p className="text-lg text-muted-custom mb-2">20+ years in Derma marketing</p>
+                    <p className="text-lg text-contrast font-semibold mb-6">Trained 500+ Dermatologists</p>
                   </div>
 
-                  <div className="space-y-4 text-white/90 leading-relaxed font-serif text-base">
+                  <div className="space-y-4 text-muted-custom leading-relaxed font-serif text-base">
                     <p>
                       Ilesh Khakhkhar is a renowned serial entrepreneur, practice management expert, and keynote speaker
                       with over 20 years of experience in dermatology marketing. As a John Maxwell Team Certified coach
@@ -404,7 +404,7 @@ export default function Home() {
                       excellence specifically tailored for dermatology practices. Ilesh led the highly successful CDSI
                       AI BOOSTER workshop in 2024 and continues to drive innovation in dermatology practice management.
                     </p>
-                    <p className="text-accent-gold font-semibold font-sans">
+                    <p className="text-accent-glow font-semibold font-sans">
                       Ilesh will lead approximately 80% of the Dermapreneur 2025 sessions, sharing actionable insights
                       you can implement immediately in your practice.
                     </p>
@@ -418,7 +418,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="pricing" className="py-32 px-4 relative overflow-hidden bg-canvas">
+      <section id="pricing" className="py-32 px-4 relative overflow-hidden bg-surface-dark">
         <StickyPromise />
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -471,16 +471,16 @@ export default function Home() {
                   whileHover={{
                     scale: 1.03,
                     boxShadow: pkg.featured
-                      ? "0 25px 50px -12px rgba(69, 25, 82, 0.25)"
-                      : "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                      ? "0 0 50px rgba(249, 168, 37, 0.5)"
+                      : "0 20px 25px -5px rgba(0, 0, 0, 0.3)",
                   }}
                   animate={
                     pkg.featured
                       ? {
                           boxShadow: [
-                            "0 20px 40px -12px rgba(69, 25, 82, 0.15)",
-                            "0 25px 50px -12px rgba(69, 25, 82, 0.25)",
-                            "0 20px 40px -12px rgba(69, 25, 82, 0.15)",
+                            "0 0 30px rgba(249, 168, 37, 0.3)",
+                            "0 0 50px rgba(249, 168, 37, 0.5)",
+                            "0 0 30px rgba(249, 168, 37, 0.3)",
                           ],
                         }
                       : {}
@@ -499,20 +499,20 @@ export default function Home() {
                   <Card
                     className={`${
                       pkg.featured
-                        ? "border-4 border-primary-dark shadow-2xl scale-105"
-                        : "border-2 border-gray-200 shadow-xl"
-                    } hover:ring-2 hover:ring-accent-gold/50 transition-all duration-300 bg-white relative h-full`}
+                        ? "border-4 border-accent-glow shadow-2xl scale-105 glow-accent-strong"
+                        : "border-2 border-accent-glow/30 shadow-xl"
+                    } hover:ring-2 hover:ring-accent-glow/50 transition-all duration-300 bg-primary-base relative h-full`}
                   >
                     {pkg.featured && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-dark text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent-glow text-primary-base px-4 py-1 rounded-full text-sm font-semibold">
                         RECOMMENDED
                       </div>
                     )}
                     <CardHeader className="text-center">
-                      <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                      <div className="text-4xl font-bold text-primary-dark font-serif">{pkg.price}</div>
-                      <CardDescription className="text-sm">{pkg.priceNote}</CardDescription>
-                      <CardDescription className="text-base font-semibold text-body mt-2">
+                      <CardTitle className="text-2xl mb-2 text-contrast">{pkg.name}</CardTitle>
+                      <div className="text-4xl font-bold text-accent-glow font-serif">{pkg.price}</div>
+                      <CardDescription className="text-sm text-muted-custom">{pkg.priceNote}</CardDescription>
+                      <CardDescription className="text-base font-semibold text-muted-custom mt-2">
                         {pkg.occupancy}
                       </CardDescription>
                     </CardHeader>
@@ -520,8 +520,8 @@ export default function Home() {
                       <ul className="space-y-3 mb-6">
                         {pkg.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <span className="text-primary-dark mr-2 font-bold">✓</span>
-                            <span className="text-body leading-relaxed">{feature}</span>
+                            <span className="text-accent-glow mr-2 font-bold">✓</span>
+                            <span className="text-muted-custom leading-relaxed">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -533,8 +533,8 @@ export default function Home() {
                         <Button
                           className={`w-full ${
                             pkg.featured
-                              ? "bg-primary-dark hover:bg-accent-gold text-white shadow-lg"
-                              : "bg-white border-2 border-primary-dark text-primary-dark hover:bg-accent-gold hover:text-white"
+                              ? "bg-accent-glow hover:bg-accent-glow/90 text-primary-base shadow-lg glow-accent"
+                              : "bg-surface-dark border-2 border-accent-glow text-accent-glow hover:bg-accent-glow hover:text-primary-base"
                           } transition-all duration-300`}
                         >
                           Join Waitlist
@@ -549,15 +549,15 @@ export default function Home() {
 
           <FadeIn delay={0.4}>
             <div className="max-w-3xl mx-auto">
-              <div className="bg-white p-8 rounded-lg border-2 border-primary-dark/20 shadow-lg">
+              <div className="bg-primary-base p-8 rounded-lg border-2 border-accent-glow/30 shadow-lg">
                 <div className="mb-6">
-                  <p className="text-body leading-relaxed text-base mb-4">
-                    <span className="font-bold text-primary-dark">Additional Person Pricing:</span> If you wish to bring
+                  <p className="text-muted-custom leading-relaxed text-base mb-4">
+                    <span className="font-bold text-accent-glow">Additional Person Pricing:</span> If you wish to bring
                     an additional person (spouse/practice partner), the cost is Rs. 60,500/- (including GST). This
                     includes access to all sessions, meals, and materials but does not include accommodation.
                   </p>
-                  <p className="text-body leading-relaxed text-base">
-                    <span className="font-bold text-primary-dark">Note:</span> For those opting for double occupancy, if
+                  <p className="text-muted-custom leading-relaxed text-base">
+                    <span className="font-bold text-accent-glow">Note:</span> For those opting for double occupancy, if
                     you don't have a roommate, we'll pair you with another attendee to ensure everyone gets the best
                     value.
                   </p>
@@ -570,7 +570,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="faq" className="py-32 px-4 bg-surface">
+      <section id="faq" className="py-32 px-4 bg-primary-base">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <SectionHeader title="What's Your Take…?" subtitle="Common objections and honest answers" />
@@ -637,18 +637,18 @@ export default function Home() {
               <FadeIn key={index} delay={index * 0.05}>
                 <motion.div
                   whileHover={{
-                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                    boxShadow: "0 0 20px rgba(249, 168, 37, 0.3)",
                   }}
                   transition={{ duration: 0.2 }}
                 >
                   <AccordionItem
                     value={`objection-${index}`}
-                    className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
+                    className="border border-accent-glow/30 rounded-lg px-6 hover:border-accent-glow transition-colors duration-300 shadow-md bg-surface-dark"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-body hover:text-primary-dark hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-contrast hover:text-accent-glow hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-body/80 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-muted-custom leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -690,18 +690,18 @@ export default function Home() {
               <FadeIn key={index} delay={index * 0.05}>
                 <motion.div
                   whileHover={{
-                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                    boxShadow: "0 0 20px rgba(249, 168, 37, 0.3)",
                   }}
                   transition={{ duration: 0.2 }}
                 >
                   <AccordionItem
                     value={`general-${index}`}
-                    className="border border-gray-200 rounded-lg px-6 hover:border-accent-gold transition-colors duration-300 shadow-md"
+                    className="border border-accent-glow/30 rounded-lg px-6 hover:border-accent-glow transition-colors duration-300 shadow-md bg-surface-dark"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-body hover:text-primary-dark hover:no-underline">
+                    <AccordionTrigger className="text-left font-semibold text-contrast hover:text-accent-glow hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-body/80 leading-relaxed">{faq.answer}</AccordionContent>
+                    <AccordionContent className="text-muted-custom leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 </motion.div>
               </FadeIn>
@@ -712,7 +712,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="venue" className="py-32 px-4 bg-canvas">
+      <section id="venue" className="py-32 px-4 bg-surface-dark">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <SectionHeader title="Venue" subtitle="The Gift City Club, Gandhinagar" />
@@ -720,30 +720,30 @@ export default function Home() {
 
           <FadeIn delay={0.2}>
             <TiltCard>
-              <div className="bg-white border-2 border-gray-100 p-12">
+              <div className="bg-primary-base border-2 border-accent-glow/30 p-12">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-primary-dark mb-2 font-serif">The Gift City Club</h3>
-                  <p className="text-xl text-body mb-4">Gandhinagar</p>
-                  <p className="text-lg text-body/70 italic">(A member of Radisson individuals)</p>
+                  <h3 className="text-3xl font-bold text-contrast mb-2 font-serif">The Gift City Club</h3>
+                  <p className="text-xl text-muted-custom mb-4">Gandhinagar</p>
+                  <p className="text-lg text-muted-custom italic">(A member of Radisson individuals)</p>
                 </div>
 
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-body leading-relaxed text-lg mb-6">
+                  <p className="text-muted-custom leading-relaxed text-lg mb-6">
                     Experience world-class facilities in the heart of Gujarat's premier financial district. The Gift
                     City Club offers a sophisticated, professional environment perfect for intensive learning and
                     meaningful networking.
                   </p>
-                  <p className="text-body leading-relaxed text-lg">
+                  <p className="text-muted-custom leading-relaxed text-lg">
                     With state-of-the-art conference facilities, comfortable accommodations, and excellent dining
                     options, the venue is designed to ensure your complete focus on practice transformation without any
                     distractions.
                   </p>
                 </div>
 
-                <div className="mt-8 pt-8 border-t-2 border-gray-200">
-                  <h4 className="text-xl font-bold text-primary-dark mb-4">Event Dates</h4>
-                  <p className="text-2xl font-semibold text-body">10-12 January, 2025</p>
-                  <p className="text-lg text-body/70 mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
+                <div className="mt-8 pt-8 border-t-2 border-accent-glow/30">
+                  <h4 className="text-xl font-bold text-accent-glow mb-4">Event Dates</h4>
+                  <p className="text-2xl font-semibold text-contrast">10-12 January, 2025</p>
+                  <p className="text-lg text-muted-custom mt-2">Friday to Sunday | 2.5 days intensive workshop</p>
                 </div>
               </div>
             </TiltCard>
@@ -753,11 +753,11 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section id="contact" className="py-32 px-4 bg-primary-dark">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      <section id="contact" className="py-32 px-4 bg-primary-base">
+        <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif">Get in Touch</h2>
-            <p className="text-xl mb-12 text-white/90 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-contrast">Get in Touch</h2>
+            <p className="text-xl mb-12 text-muted-custom leading-relaxed">
               Have questions or need more information? We're here to help you make the right decision for your
               practice's growth.
             </p>
@@ -769,22 +769,22 @@ export default function Home() {
                 href="tel:+919876543210"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="bg-surface-dark backdrop-blur-sm p-8 rounded-lg border border-accent-glow/30 hover:border-accent-glow hover:glow-accent transition-all duration-300"
               >
                 <div className="text-4xl mb-4">📞</div>
-                <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                <p className="text-white/80">+91 98765 43210</p>
+                <h3 className="text-xl font-semibold mb-2 text-contrast">Phone</h3>
+                <p className="text-muted-custom">+91 98765 43210</p>
               </motion.a>
 
               <motion.a
                 href="mailto:info@dermapreneur.com"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="bg-surface-dark backdrop-blur-sm p-8 rounded-lg border border-accent-glow/30 hover:border-accent-glow hover:glow-accent transition-all duration-300"
               >
                 <div className="text-4xl mb-4">✉️</div>
-                <h3 className="text-xl font-semibold mb-2">Email</h3>
-                <p className="text-white/80">info@dermapreneur.com</p>
+                <h3 className="text-xl font-semibold mb-2 text-contrast">Email</h3>
+                <p className="text-muted-custom">info@dermapreneur.com</p>
               </motion.a>
             </div>
           </FadeIn>
@@ -792,7 +792,7 @@ export default function Home() {
           <FadeIn delay={0.4}>
             <PremiumButton
               size="lg"
-              className="bg-white text-primary-dark hover:bg-accent-gold hover:text-white text-lg px-12 py-6"
+              className="bg-accent-glow text-primary-base hover:bg-accent-glow/90 hover:glow-accent-strong text-lg px-12 py-6"
             >
               Join the Waitlist
             </PremiumButton>
@@ -809,57 +809,57 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-6 mb-6">
             <motion.a
               href="#home"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               Home
             </motion.a>
             <motion.a
               href="#about"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               About
             </motion.a>
             <motion.a
               href="#speakers"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               Speaker
             </motion.a>
             <motion.a
               href="#pricing"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               Pricing
             </motion.a>
             <motion.a
               href="#faq"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               FAQ
             </motion.a>
             <motion.a
               href="#venue"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               Venue
             </motion.a>
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.1, color: "#F39F5A" }}
+              whileHover={{ scale: 1.1, color: "#F9A825" }}
               transition={{ duration: 0.2 }}
-              className="hover:text-accent-gold transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               Contact
             </motion.a>

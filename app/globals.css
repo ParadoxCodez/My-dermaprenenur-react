@@ -4,92 +4,89 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Deep Plum & Gold Professional Color System */
+  /* Complete dark theme with ConnectSphere-inspired colors */
 
-  /* Primary Colors */
-  --primary-dark: #451952; /* Deep Plum - Hero BG, Speaker Block BG, main headers */
-  --accent-gold: #f39f5a; /* Gold - Hover states, active links, highlights */
+  /* Primary Colors - Dark Theme Base */
+  --primary-base: #1a1a2e; /* Main Background - Deep Charcoal */
+  --surface-dark: #2c2c4a; /* Card/Component Background - Slightly lighter */
+  --accent-glow: #f9a825; /* Highlight Color - Vivid Gold/Yellow */
 
-  /* Text Colors */
-  --text-body: #1d1a39; /* Deep Near-Black - Text on light backgrounds */
+  /* Text Colors - High Contrast */
+  --text-contrast: #ffffff; /* All primary text on dark backgrounds */
+  --text-muted: #a9a9b0; /* Muted secondary text and captions */
 
-  /* Background Colors */
-  --bg-canvas: #f9f9f9; /* Global base background */
-  --bg-surface: #ffffff; /* Card and component backgrounds */
-
-  /* Design Token Mappings */
-  --background: 249 249 249; /* #F9F9F9 - Canvas */
-  --foreground: 29 26 57; /* #1D1A39 - Body Text */
-  --card: 255 255 255; /* Surface White */
-  --card-foreground: 29 26 57;
-  --popover: 255 255 255;
-  --popover-foreground: 29 26 57;
-  --primary: 69 25 82; /* #451952 - Deep Plum */
-  --primary-foreground: 255 255 255;
-  --secondary: 249 249 249;
-  --secondary-foreground: 29 26 57;
-  --muted: 249 249 249;
-  --muted-foreground: 117 117 117;
-  --accent: 243 159 90; /* #F39F5A - Accent Gold */
-  --accent-foreground: 29 26 57;
-  --destructive: 211 47 47;
+  /* Design Token Mappings for shadcn components */
+  --background: 26 26 46; /* #1A1A2E */
+  --foreground: 255 255 255; /* #FFFFFF */
+  --card: 44 44 74; /* #2C2C4A */
+  --card-foreground: 255 255 255;
+  --popover: 44 44 74;
+  --popover-foreground: 255 255 255;
+  --primary: 249 168 37; /* #F9A825 - Accent Glow */
+  --primary-foreground: 26 26 46;
+  --secondary: 44 44 74;
+  --secondary-foreground: 255 255 255;
+  --muted: 44 44 74;
+  --muted-foreground: 169 169 176;
+  --accent: 249 168 37; /* #F9A825 */
+  --accent-foreground: 26 26 46;
+  --destructive: 239 68 68;
   --destructive-foreground: 255 255 255;
-  --border: 224 224 224;
-  --input: 224 224 224;
-  --ring: 243 159 90; /* Accent Gold for focus rings */
+  --border: 60 60 80;
+  --input: 60 60 80;
+  --ring: 249 168 37; /* Accent Glow for focus */
   --radius: 0.5rem;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.708 0.206 85.872);
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.205 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.708 0.206 85.872);
 }
 
 .dark {
-  --background: 29 26 57;
-  --foreground: 249 249 249;
-  --card: 69 25 82;
+  --background: 26 26 46;
+  --foreground: 255 255 255;
+  --card: 44 44 74;
   --card-foreground: 255 255 255;
-  --popover: 69 25 82;
+  --popover: 44 44 74;
   --popover-foreground: 255 255 255;
-  --primary: 69 25 82;
-  --primary-foreground: 255 255 255;
-  --secondary: 50 50 50;
-  --secondary-foreground: 249 249 249;
-  --muted: 50 50 50;
-  --muted-foreground: 180 180 180;
-  --accent: 243 159 90;
-  --accent-foreground: 29 26 57;
+  --primary: 249 168 37;
+  --primary-foreground: 26 26 46;
+  --secondary: 44 44 74;
+  --secondary-foreground: 255 255 255;
+  --muted: 44 44 74;
+  --muted-foreground: 169 169 176;
+  --accent: 249 168 37;
+  --accent-foreground: 26 26 46;
   --destructive: 239 68 68;
   --destructive-foreground: 255 255 255;
-  --border: 60 60 60;
-  --input: 60 60 60;
-  --ring: 243 159 90;
+  --border: 60 60 80;
+  --input: 60 60 80;
+  --ring: 249 168 37;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.145 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-primary: oklch(0.708 0.206 85.872);
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.205 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-ring: oklch(0.708 0.206 85.872);
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
@@ -137,67 +134,80 @@
     @apply border-border outline-ring/50;
   }
   body {
+    /* Dark theme base with subtle dot pattern */
     @apply bg-background text-foreground;
-    background-color: #f9f9f9;
-    background-image: radial-gradient(circle, #e0e0e0 0.5px, transparent 0.5px);
+    background-color: #1a1a2e;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0.5px, transparent 0.5px);
     background-size: 20px 20px;
     background-attachment: fixed;
   }
 }
 
 @layer utilities {
-  /* Primary Dark (Deep Plum) */
-  .text-primary-dark {
-    color: #451952;
+  /* Dark theme utility classes */
+
+  /* Primary Base (Deep Charcoal) */
+  .text-primary-base {
+    color: #1a1a2e;
   }
-  .bg-primary-dark {
-    background-color: #451952;
+  .bg-primary-base {
+    background-color: #1a1a2e;
   }
-  .border-primary-dark {
-    border-color: #451952;
+  .border-primary-base {
+    border-color: #1a1a2e;
   }
 
-  /* Accent Gold */
-  .text-accent-gold {
-    color: #f39f5a;
+  /* Surface Dark */
+  .text-surface-dark {
+    color: #2c2c4a;
   }
-  .bg-accent-gold {
-    background-color: #f39f5a;
+  .bg-surface-dark {
+    background-color: #2c2c4a;
   }
-  .border-accent-gold {
-    border-color: #f39f5a;
-  }
-
-  /* Text Body */
-  .text-body {
-    color: #1d1a39;
+  .border-surface-dark {
+    border-color: #2c2c4a;
   }
 
-  /* Background Canvas */
-  .bg-canvas {
-    background-color: #f9f9f9;
+  /* Accent Glow (Vivid Gold) */
+  .text-accent-glow {
+    color: #f9a825;
+  }
+  .bg-accent-glow {
+    background-color: #f9a825;
+  }
+  .border-accent-glow {
+    border-color: #f9a825;
   }
 
-  /* Background Surface */
-  .bg-surface {
-    background-color: #ffffff;
+  /* Text Contrast (White) */
+  .text-contrast {
+    color: #ffffff;
   }
 
-  /* Section backgrounds with subtle texture */
-  .section-canvas {
-    background-color: #f9f9f9;
-    background-image: radial-gradient(circle, #e0e0e0 0.5px, transparent 0.5px);
-    background-size: 20px 20px;
+  /* Text Muted */
+  .text-muted-custom {
+    color: #a9a9b0;
   }
 
-  .section-light {
-    background-color: #ffffff;
-    background-image: radial-gradient(circle, #f0f0f0 0.5px, transparent 0.5px);
-    background-size: 20px 20px;
+  /* High contrast section backgrounds */
+  .section-dark {
+    background-color: #1a1a2e;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
   }
 
-  /* Subtle parallax effect for background patterns */
-  .parallax-bg {
-    will-change: transform;
+  .section-darker {
+    background-color: #16161f;
+    background-image: radial-gradient(circle, rgba(249, 168, 37, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Subtle glow effects for accent elements */
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(249, 168, 37, 0.3);
+  }
+
+  .glow-accent-strong {
+    box-shadow: 0 0 40px rgba(249, 168, 37, 0.5);
   }
 }
