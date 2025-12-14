@@ -8,14 +8,10 @@ interface FeatureCardProps {
   title: string
   description?: string
   shadowColor?: string
+  darkMode?: boolean
 }
 
-export function FeatureCard({
-  icon,
-  title,
-  description,
-  shadowColor = "#ff6347", // Changed default to coral
-}: FeatureCardProps) {
+export function FeatureCard({ icon, title, description, shadowColor = "#F9A825", darkMode = false }: FeatureCardProps) {
   return (
     <motion.div
       whileHover={{
@@ -31,7 +27,13 @@ export function FeatureCard({
       }}
       className="h-full"
     >
-      <Card className="border border-gray-200 hover:border-[#ff6347]/50 transition-all duration-300 bg-white shadow-xl h-full">
+      <Card
+        className={`border ${
+          darkMode
+            ? "border-white/20 hover:border-accent-gold/50 bg-white/10 backdrop-blur-sm"
+            : "border-gray-200 hover:border-accent-gold/50 bg-white"
+        } transition-all duration-300 shadow-xl h-full`}
+      >
         <div className="p-8 h-full">
           <div className="text-4xl mb-4 inline-block relative">
             <motion.div
@@ -52,8 +54,12 @@ export function FeatureCard({
             />
             <span className="relative z-10">{icon}</span>
           </div>
-          <h3 className="text-xl font-bold text-[#1e3a8a] mb-3 font-serif">{title}</h3>
-          {description && <p className="text-gray-600 leading-relaxed">{description}</p>}
+          <h3 className={`text-xl font-bold mb-3 font-serif ${darkMode ? "text-white" : "text-primary-navy"}`}>
+            {title}
+          </h3>
+          {description && (
+            <p className={`leading-relaxed ${darkMode ? "text-white/80" : "text-deep/80"}`}>{description}</p>
+          )}
         </div>
       </Card>
     </motion.div>

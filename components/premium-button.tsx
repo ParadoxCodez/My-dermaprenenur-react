@@ -24,7 +24,7 @@ export function PremiumButton({ children, onClick, size = "lg", className = "" }
       <Button
         size={size}
         onClick={onClick}
-        className={`bg-[#1e3a8a] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,58,138,0.4)] hover:ring-4 hover:ring-[#1e3a8a]/20 ${className}`}
+        className={`bg-primary-navy hover:bg-accent-gold hover:text-white text-white font-semibold rounded-lg shadow-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,168,37,0.4)] hover:ring-4 hover:ring-accent-gold/20 ${className}`}
       >
         {children}
       </Button>

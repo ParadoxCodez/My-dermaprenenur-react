@@ -34,7 +34,6 @@ export default function Home() {
     <div className="min-h-screen section-canvas">
       <Navbar />
 
-      {/* Hero Section */}
       <section
         id="home"
         className="min-h-screen flex items-center justify-center px-4 bg-primary-navy pt-20 relative overflow-hidden"
@@ -108,13 +107,12 @@ export default function Home() {
                 <motion.div
                   whileHover={{
                     scale: 1.02,
-                    boxShadow: "0 0 40px rgba(249, 168, 37, 0.4), 0 0 80px rgba(249, 168, 37, 0.2)",
                   }}
                   transition={{ duration: 0.3 }}
                 >
                   <Button
                     size="lg"
-                    className="text-lg px-12 py-6 bg-white text-primary-navy hover:bg-white/90 font-bold shadow-2xl relative overflow-hidden group"
+                    className="text-lg px-12 py-6 bg-white text-primary-navy hover:bg-accent-gold hover:text-white font-bold shadow-2xl relative overflow-hidden group transition-all duration-300"
                   >
                     <span className="relative z-10">ADD YOUR NAME IN THE WAITLIST</span>
                     {/* Ripple effect on hover */}
@@ -134,83 +132,94 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* What to Expect Section */}
-      <section id="about" className="py-32 px-4 overflow-hidden section-sepia">
-        <div className="relative">
-          {/* Rotated background container */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4F7] to-[#FBFBFB] transform -rotate-[0.5deg] scale-105" />
+      <section id="about" className="relative py-32 px-4 overflow-hidden">
+        {/* Dark dramatic background (Primary Navy) for editorial impact */}
+        <div className="absolute inset-0 bg-primary-navy" />
 
-          {/* Content remains horizontal */}
-          <div className="relative max-w-7xl mx-auto">
-            <FadeIn>
-              <SectionHeader
-                title="What to Expect"
-                subtitle="2 and half days' intensive fun-filled experiential learning experience"
-              />
-            </FadeIn>
+        {/* Subtle pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+        />
 
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.08,
-                  },
+        {/* Content with white text overlay */}
+        <div className="relative max-w-7xl mx-auto z-10">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block"
+              >
+                <div className="w-16 h-1 bg-accent-gold mx-auto mb-6" />
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-white">
+                  What to Expect
+                </h2>
+                <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                  2 and half days' intensive fun-filled experiential learning experience
+                </p>
+              </motion.div>
+            </div>
+          </FadeIn>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.08,
                 },
-              }}
-            >
-              {[
-                { icon: "🎯", title: "Hands-on Experience", color: "#F9A825" },
-                { icon: "📚", title: "Thought Provoking Workbooks", color: "#F9A825" },
-                { icon: "🎉", title: "Entertainment Evenings", color: "#F9A825" },
-                { icon: "💡", title: "Innovative Insights", color: "#F9A825" },
-                { icon: "🎓", title: "Fun Way Learning", color: "#F9A825" },
-                { icon: "🔧", title: "Actionable Ideas", color: "#F9A825" },
-                { icon: "🎭", title: "Engaging Role Plays", color: "#F9A825" },
-                { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F9A825" },
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+              },
+            }}
+          >
+            {[
+              { icon: "🎯", title: "Hands-on Experience", color: "#F9A825" },
+              { icon: "📚", title: "Thought Provoking Workbooks", color: "#F9A825" },
+              { icon: "🎉", title: "Entertainment Evenings", color: "#F9A825" },
+              { icon: "💡", title: "Innovative Insights", color: "#F9A825" },
+              { icon: "🎓", title: "Fun Way Learning", color: "#F9A825" },
+              { icon: "🔧", title: "Actionable Ideas", color: "#F9A825" },
+              { icon: "🎭", title: "Engaging Role Plays", color: "#F9A825" },
+              { icon: "🚀", title: "Cutting-edge Tools & Inputs", color: "#F9A825" },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <FeatureCard icon={feature.icon} title={feature.title} shadowColor={feature.color} darkMode />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       <SectionDivider />
 
-      {/* Stats Section */}
+      {/* Stats Section with mixed-width columns */}
       <section className="py-32 px-4 section-canvas relative overflow-hidden">
         <FloatingShapes />
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
-            <div className="text-center mb-16">
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 50, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="h-0.5 bg-accent-gold mx-auto mb-6"
-              />
-              <h2 className="text-4xl md:text-5xl font-bold text-primary-navy mb-4 font-serif">
-                The Success Trail Of Previous Versions
-              </h2>
-            </div>
+            <SectionHeader
+              title="Success by Numbers"
+              subtitle="Proven track record of transforming dermatology practices across India"
+            />
           </FadeIn>
 
           <motion.div
-            className="grid md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -223,27 +232,28 @@ export default function Home() {
             }}
           >
             {[
-              { number: 6, suffix: "+", label: "Successful Versions" },
-              { number: 582, suffix: "+", label: "Delighted Dermapreneurs" },
-              { number: 187, suffix: "+", label: "Hours of Knowledge Delivered" },
-              { number: 161, suffix: "+", label: "Insightful & Practical Inputs Delivered" },
+              { value: 6, label: "Versions", suffix: "+" },
+              { value: 582, label: "Dermapreneurs", suffix: "+" },
+              { value: 187, label: "Hours of Content", suffix: "+" },
+              { value: 161, label: "Expert Inputs", suffix: "+" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 variants={{
-                  hidden: { opacity: 0, y: 40 },
+                  hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className={index === 1 ? "md:col-span-2 lg:col-span-1" : ""}
               >
-                <TiltCard className="text-center">
-                  <div className="p-10 bg-white border border-[#e0e0e0] rounded-lg">
-                    <div className="text-5xl md:text-6xl font-bold text-primary-navy mb-2">
-                      <AnimatedCounter value={stat.number} suffix={stat.suffix} duration={2} />
+                <FadeIn delay={index * 0.1}>
+                  <div className="text-center p-8 bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="text-5xl md:text-6xl font-bold text-primary-navy mb-4 font-serif">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-lg text-deep">{stat.label}</div>
+                    <p className="text-lg text-deep font-semibold">{stat.label}</p>
                   </div>
-                </TiltCard>
+                </FadeIn>
               </motion.div>
             ))}
           </motion.div>
@@ -335,30 +345,38 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Speakers Section */}
-      <section id="speakers" className="py-32 px-4 relative overflow-hidden section-canvas">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FBFBFB] to-[#F0F4F7]" />
+      {/* Keynote Speaker Section - High-contrast editorial block with Primary Navy background */}
+      <section id="speakers" className="py-32 px-4 relative overflow-hidden bg-primary-navy">
+        {/* Subtle pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+        />
 
         <FloatingShapes />
 
-        {/* Subtle dotted grid pattern */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle, #d8dce0 1px, transparent 1px)",
-            backgroundSize: "30px 30px",
-          }}
-          initial={{ y: 0 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0 }}
-        />
-
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
-            <SectionHeader
-              title="Keynote Speaker"
-              subtitle="Learn from the industry's leading expert in dermatology practice management"
-            />
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block"
+              >
+                <div className="w-16 h-1 bg-accent-gold mx-auto mb-6" />
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif text-white">
+                  Keynote Speaker
+                </h2>
+                <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                  Learn from the industry's leading expert in dermatology practice management
+                </p>
+              </motion.div>
+            </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
@@ -366,31 +384,42 @@ export default function Home() {
               <div className="grid lg:grid-cols-5 gap-12 items-start">
                 {/* Left side - Photo placeholder */}
                 <div className="lg:col-span-2">
-                  <div className="aspect-[3/4] bg-gradient-to-br from-primary-navy/10 to-primary-navy/5 rounded-lg border-2 border-primary-navy/20 flex items-center justify-center">
+                  <div className="aspect-[3/4] bg-white/10 backdrop-blur-sm rounded-lg border-2 border-accent-gold/50 flex items-center justify-center">
                     <div className="text-center p-8">
                       <div className="text-6xl mb-4">👨‍⚕️</div>
-                      <p className="text-sm text-gray-500">Speaker Photo</p>
+                      <p className="text-sm text-white/60">Speaker Photo</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Right side - Bio text */}
                 <div className="lg:col-span-3">
                   <div className="mb-6">
-                    <h3 className="text-4xl font-bold text-primary-navy mb-4 font-serif">Ilesh Khakhkhar</h3>
-                    <div className="flex flex-wrap gap-2 text-sm text-deep mb-6">
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Leader</span>
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Entrepreneur</span>
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Marketer</span>
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Keynote Speaker</span>
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Author</span>
-                      <span className="px-3 py-1 bg-blue-50 rounded-full">Certified Business Coach</span>
+                    <h3 className="text-4xl font-bold text-white mb-4 font-serif">Ilesh Khakhkhar</h3>
+                    <div className="flex flex-wrap gap-2 text-sm mb-6">
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Leader
+                      </span>
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Entrepreneur
+                      </span>
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Marketer
+                      </span>
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Keynote Speaker
+                      </span>
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Author
+                      </span>
+                      <span className="px-3 py-1 bg-accent-gold/20 text-accent-gold rounded-full border border-accent-gold/30">
+                        Certified Business Coach
+                      </span>
                     </div>
-                    <p className="text-lg text-deep mb-2">20+ years in Derma marketing</p>
-                    <p className="text-lg text-deep font-semibold mb-6">Trained 500+ Dermatologists</p>
+                    <p className="text-lg text-white/90 mb-2">20+ years in Derma marketing</p>
+                    <p className="text-lg text-white font-semibold mb-6">Trained 500+ Dermatologists</p>
                   </div>
 
-                  <div className="space-y-4 text-deep leading-relaxed font-serif text-base">
+                  <div className="space-y-4 text-white/90 leading-relaxed font-serif text-base">
                     <p>
                       Ilesh Khakhkhar is a renowned serial entrepreneur, practice management expert, and keynote speaker
                       with over 20 years of experience in dermatology marketing. As a John Maxwell Team Certified coach
@@ -401,7 +430,7 @@ export default function Home() {
                       excellence specifically tailored for dermatology practices. Ilesh led the highly successful CDSI
                       AI BOOSTER workshop in 2024 and continues to drive innovation in dermatology practice management.
                     </p>
-                    <p className="text-primary-navy font-semibold font-sans">
+                    <p className="text-accent-gold font-semibold font-sans">
                       Ilesh will lead approximately 80% of the Dermapreneur 2025 sessions, sharing actionable insights
                       you can implement immediately in your practice.
                     </p>
